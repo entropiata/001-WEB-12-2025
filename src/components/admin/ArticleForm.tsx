@@ -9,7 +9,11 @@ const API_URL = 'http://localhost:5000/api';
 interface Article {
     id: number;
     title: string;
+    author?: string;
+    category?: string;
+    slug?: string;
     content: string;
+    excerpt?: string;
     image: string | null;
     status: 'draft' | 'published';
 }
@@ -21,17 +25,44 @@ interface ArticleFormProps {
 
 export function ArticleForm({ article, onClose }: ArticleFormProps) {
     const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [category, setCategory] = useState('');
+    const [slug, setSlug] = useState('');
     const [content, setContent] = useState('');
+    const [excerpt, setExcerpt] = useState('');
     const [image, setImage] = useState('');
     const [status, setStatus] = useState<'draft' | 'published'>('draft');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
 
+    // Auto-generate slug from title
+    const generateSlug = (text: string) => {
+        return text
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/(^-|-$)/g, '');
+    };
+
+    const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newTitle = e.target.value;
+        setTitle(newTitle);
+        // Auto-generate slug only if creating new article
+        if (!article) {
+            setSlug(generateSlug(newTitle));
+        }
+    };
+
     useEffect(() => {
         if (article) {
             setTitle(article.title);
+            setAuthor(article.author || '');
+            setCategory(article.category || '');
+            setSlug(article.slug || '');
             setContent(article.content);
+            setExcerpt(article.excerpt || '');
             setImage(article.image || '');
             setStatus(article.status);
         }
@@ -57,7 +88,11 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                 },
                 body: JSON.stringify({
                     title,
+                    author: author || 'Tim Puskesmas Pasongsongan',
+                    category: category || 'Artikel',
+                    slug: slug || generateSlug(title),
                     content,
+                    excerpt: excerpt || null,
                     image: image || null,
                     status,
                 }),
@@ -145,12 +180,88 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         id="title"
                                         type="text"
                                         value={title}
-                                        onChange={(e) => setTitle(e.target.value)}
+                                        onChange={handleTitleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
                                         placeholder="Enter article title"
                                         required
                                         disabled={loading}
                                     />
+                                </div>
+
+                                {/* Author */}
+                                <div>
+                                    <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Author
+                                    </label>
+                                    <input
+                                        id="author"
+                                        type="text"
+                                        value={author}
+                                        onChange={(e) => setAuthor(e.target.value)}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                        placeholder="Tim Puskesmas Pasongsongan"
+                                        disabled={loading}
+                                    />
+                                </div>
+
+                                {/* Category */}
+                                <div>
+                                    <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Category
+                                    </label>
+                                    <select
+                                        id="category"
+                                        value={category}
+                                        onChange={(e) => setCategory(e.target.value)}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                        disabled={loading}
+                                    >
+                                        <option value="">Select category</option>
+                                        <option value="Artikel">Artikel</option>
+                                        <option value="Edukasi Kesehatan">Edukasi Kesehatan</option>
+                                        <option value="Imunisasi">Imunisasi</option>
+                                        <option value="Kegiatan">Kegiatan</option>
+                                        <option value="Program Kesehatan">Program Kesehatan</option>
+                                        <option value="Ibu & Anak">Ibu & Anak</option>
+                                    </select>
+                                </div>
+
+                                {/* Slug */}
+                                <div>
+                                    <label htmlFor="slug" className="block text-sm font-medium text-gray-700 mb-2">
+                                        URL Slug
+                                    </label>
+                                    <input
+                                        id="slug"
+                                        type="text"
+                                        value={slug}
+                                        onChange={(e) => setSlug(e.target.value)}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all font-mono text-sm"
+                                        placeholder="article-url-slug"
+                                        disabled={loading}
+                                    />
+                                    <p className="mt-2 text-sm text-gray-500">
+                                        Auto-generated from title. You can edit if needed.
+                                    </p>
+                                </div>
+
+                                {/* Excerpt */}
+                                <div>
+                                    <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Excerpt
+                                    </label>
+                                    <textarea
+                                        id="excerpt"
+                                        value={excerpt}
+                                        onChange={(e) => setExcerpt(e.target.value)}
+                                        rows={3}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all resize-none"
+                                        placeholder="Short summary for article listing..."
+                                        disabled={loading}
+                                    />
+                                    <p className="mt-2 text-sm text-gray-500">
+                                        Optional. Will be auto-generated from content if left empty.
+                                    </p>
                                 </div>
 
                                 {/* Content */}

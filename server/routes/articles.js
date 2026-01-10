@@ -5,6 +5,7 @@ const authMiddleware = require('../middleware/auth');
 
 // Public routes (for frontend to fetch articles)
 router.get('/', articlesController.getAllArticles);
+router.get('/slug/:slug', articlesController.getArticleBySlug);
 router.get('/:id', articlesController.getArticleById);
 
 // Protected routes (admin only)

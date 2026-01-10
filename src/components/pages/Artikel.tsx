@@ -1,10 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
-import { Calendar, Tag, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Tag, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+
+const API_URL = 'http://localhost:5000/api';
+
+interface Article {
+  id: number;
+  title: string;
+  author?: string;
+  category?: string;
+  slug: string;
+  content: string;
+  excerpt?: string;
+  image: string | null;
+  status: 'draft' | 'published';
+  created_at: string;
+  updated_at: string;
+}
 
 export function Artikel() {
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('Semua');
   const itemsPerPage = 6;
@@ -18,85 +37,55 @@ export function Artikel() {
     'Ibu & Anak',
   ];
 
-  const allArtikel = [
-    {
-      slug: 'tips-menjaga-kesehatan-di-musim-hujan',
-      title: 'Tips Menjaga Kesehatan di Musim Hujan',
-      excerpt: 'Musim hujan sering kali membawa berbagai penyakit. Pelajari cara menjaga kesehatan Anda dan keluarga dengan tips praktis dari kami.',
-      date: '28 Desember 2024',
-      category: 'Edukasi Kesehatan',
-      image: 'https://images.unsplash.com/photo-1758691462126-2ee47c8bf9e7?w=400',
-    },
-    {
-      slug: 'pentingnya-imunisasi-untuk-anak',
-      title: 'Pentingnya Imunisasi untuk Anak',
-      excerpt: 'Imunisasi merupakan investasi kesehatan terbaik untuk anak. Kenali jenis-jenis imunisasi dan jadwal yang tepat untuk si kecil.',
-      date: '25 Desember 2024',
-      category: 'Imunisasi',
-      image: 'https://images.unsplash.com/photo-1618426372878-9d83ce534436?w=400',
-    },
-    {
-      slug: 'program-posyandu-lansia-bulan-desember',
-      title: 'Program Posyandu Lansia Bulan Desember',
-      excerpt: 'Kegiatan pemeriksaan kesehatan rutin untuk lansia telah dilaksanakan dengan sukses. Lebih dari 100 lansia mengikuti program ini.',
-      date: '20 Desember 2024',
-      category: 'Kegiatan',
-      image: 'https://images.unsplash.com/photo-1758575514487-0390fcacc339?w=400',
-    },
-    {
-      slug: 'cara-mencegah-stunting-pada-balita',
-      title: 'Cara Mencegah Stunting pada Balita',
-      excerpt: 'Stunting dapat dicegah dengan nutrisi yang tepat. Pelajari cara memberikan asupan gizi yang baik untuk tumbuh kembang optimal anak.',
-      date: '18 Desember 2024',
-      category: 'Ibu & Anak',
-      image: 'https://images.unsplash.com/photo-1691341114517-e61d8e2e2298?w=400',
-    },
-    {
-      slug: 'gerakan-hidup-sehat-dimulai-dari-keluarga',
-      title: 'Gerakan Hidup Sehat Dimulai dari Keluarga',
-      excerpt: 'Program GERMAS (Gerakan Masyarakat Hidup Sehat) mengajak setiap keluarga untuk menerapkan pola hidup sehat di rumah.',
-      date: '15 Desember 2024',
-      category: 'Program Kesehatan',
-      image: 'https://images.unsplash.com/photo-1758691462126-2ee47c8bf9e7?w=400',
-    },
-    {
-      slug: 'pemeriksaan-kesehatan-gratis-untuk-pelajar',
-      title: 'Pemeriksaan Kesehatan Gratis untuk Pelajar',
-      excerpt: 'Puskesmas Pasongsongan mengadakan pemeriksaan kesehatan gratis untuk pelajar SD dan SMP di wilayah kerja kami.',
-      date: '12 Desember 2024',
-      category: 'Kegiatan',
-      image: 'https://images.unsplash.com/photo-1758575514487-0390fcacc339?w=400',
-    },
-    {
-      slug: 'kenali-gejala-dbd-dan-cara-pencegahannya',
-      title: 'Kenali Gejala DBD dan Cara Pencegahannya',
-      excerpt: 'Demam berdarah dengue (DBD) masih menjadi ancaman. Kenali gejala dan lakukan pencegahan dengan 3M Plus.',
-      date: '10 Desember 2024',
-      category: 'Edukasi Kesehatan',
-      image: 'https://images.unsplash.com/photo-1691341114517-e61d8e2e2298?w=400',
-    },
-    {
-      slug: 'sosialisasi-asi-eksklusif-untuk-ibu-hamil',
-      title: 'Sosialisasi ASI Eksklusif untuk Ibu Hamil',
-      excerpt: 'Kegiatan edukasi tentang pentingnya ASI eksklusif 6 bulan untuk tumbuh kembang bayi yang optimal.',
-      date: '8 Desember 2024',
-      category: 'Ibu & Anak',
-      image: 'https://images.unsplash.com/photo-1618426372878-9d83ce534436?w=400',
-    },
-    {
-      slug: 'imunisasi-mr-untuk-anak-usia-sekolah',
-      title: 'Imunisasi MR untuk Anak Usia Sekolah',
-      excerpt: 'Program imunisasi Measles Rubella (MR) dilaksanakan untuk melindungi anak dari penyakit campak dan rubella.',
-      date: '5 Desember 2024',
-      category: 'Imunisasi',
-      image: 'https://images.unsplash.com/photo-1758691462126-2ee47c8bf9e7?w=400',
-    },
-  ];
+  useEffect(() => {
+    fetchArticles();
+  }, []);
 
-  const filteredArtikel =
-    selectedCategory === 'Semua'
-      ? allArtikel
-      : allArtikel.filter((artikel) => artikel.category === selectedCategory);
+  const fetchArticles = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${API_URL}/articles?status=published`);
+      const data = await response.json();
+
+      if (data.success) {
+        setArticles(data.data);
+      } else {
+        setError('Failed to load articles');
+      }
+    } catch (err) {
+      setError('Unable to connect to server');
+      console.error('Error fetching articles:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Helper function to extract excerpt from content
+  const getExcerpt = (content: string, maxLength: number = 150) => {
+    if (content.length <= maxLength) return content;
+    return content.substring(0, maxLength).trim() + '...';
+  };
+
+  // Helper function to format date
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('id-ID', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+  };
+
+  // Helper function to create slug from title
+  const createSlug = (title: string) => {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  };
+
+  // For now, we'll show all articles (category filtering can be added later)
+  const filteredArtikel = articles;
 
   const totalPages = Math.ceil(filteredArtikel.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -148,36 +137,58 @@ export function Artikel() {
               </Button>
             ))}
           </div>
+          <p className="text-sm text-gray-500 mt-3">
+            Menampilkan {filteredArtikel.length} artikel
+          </p>
         </div>
       </section>
 
       {/* Artikel List */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {displayedArtikel.length > 0 ? (
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="w-8 h-8 text-emerald-600 animate-spin" />
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-red-600 mb-4">{error}</p>
+              <Button
+                onClick={fetchArticles}
+                className="bg-emerald-600 hover:bg-emerald-700"
+              >
+                Coba Lagi
+              </Button>
+            </div>
+          ) : displayedArtikel.length > 0 ? (
             <>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                {displayedArtikel.map((artikel, index) => (
-                  <Link key={index} to={`/artikel/${artikel.slug}`}>
+                {displayedArtikel.map((artikel) => (
+                  <Link key={artikel.id} to={`/artikel/${artikel.slug}`}>
                     <Card className="hover:shadow-lg transition-all hover:scale-[1.02] overflow-hidden cursor-pointer h-full">
                       <div className="h-48 bg-gray-200 overflow-hidden">
                         <img
-                          src={artikel.image}
+                          src={artikel.image || 'https://images.unsplash.com/photo-1758691462126-2ee47c8bf9e7?w=400'}
                           alt={artikel.title}
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1758691462126-2ee47c8bf9e7?w=400';
+                          }}
                         />
                       </div>
                       <CardContent className="p-6">
                         <div className="mb-3">
                           <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm">
-                            {artikel.category}
+                            {artikel.category || 'Artikel'}
                           </span>
                         </div>
                         <h3 className="text-gray-900 mb-3">{artikel.title}</h3>
-                        <p className="text-gray-600 text-sm mb-4 line-clamp-2">{artikel.excerpt}</p>
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                          {artikel.excerpt || getExcerpt(artikel.content)}
+                        </p>
                         <div className="flex items-center gap-2 text-gray-500 text-sm">
                           <Calendar className="w-4 h-4" />
-                          <span>{artikel.date}</span>
+                          <span>{formatDate(artikel.created_at)}</span>
                         </div>
                       </CardContent>
                     </Card>
@@ -232,7 +243,10 @@ export function Artikel() {
             </>
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-500">Tidak ada artikel untuk kategori ini.</p>
+              <p className="text-gray-500 mb-4">Belum ada artikel yang dipublikasikan.</p>
+              <p className="text-sm text-gray-400">
+                Artikel akan muncul di sini setelah dipublikasikan oleh admin.
+              </p>
             </div>
           )}
         </div>

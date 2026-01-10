@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
@@ -209,29 +209,35 @@ export function Home() {
     }
   ];
 
-  const artikelTerbaru = [
-    {
-      slug: 'tips-menjaga-kesehatan-di-musim-hujan',
-      title: 'Tips Menjaga Kesehatan di Musim Hujan',
-      date: '28 Desember 2024',
-      category: 'Edukasi Kesehatan',
-      image: 'https://images.unsplash.com/photo-1758691462126-2ee47c8bf9e7?w=400'
-    },
-    {
-      slug: 'pentingnya-imunisasi-untuk-anak',
-      title: 'Pentingnya Imunisasi untuk Anak',
-      date: '25 Desember 2024',
-      category: 'Imunisasi',
-      image: 'https://images.unsplash.com/photo-1618426372878-9d83ce534436?w=400'
-    },
-    {
-      slug: 'program-posyandu-lansia-bulan-desember',
-      title: 'Program Posyandu Lansia Bulan Desember',
-      date: '20 Desember 2024',
-      category: 'Kegiatan',
-      image: 'https://images.unsplash.com/photo-1758575514487-0390fcacc339?w=400'
-    }
-  ];
+  const [artikelTerbaru, setArtikelTerbaru] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Fetch latest published articles
+    fetch('http://localhost:5000/api/articles?status=published')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          // Get only the 3 most recent articles
+          const latest = data.data.slice(0, 3).map((article: any) => ({
+            slug: article.slug,
+            title: article.title,
+            date: new Date(article.created_at).toLocaleDateString('id-ID', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+            }),
+            category: article.category || 'Artikel',
+            image: article.image || 'https://images.unsplash.com/photo-1758691462126-2ee47c8bf9e7?w=400'
+          }));
+          setArtikelTerbaru(latest);
+        }
+      })
+      .catch(err => {
+        console.error('Failed to fetch articles:', err);
+        // Fallback to empty array if fetch fails
+        setArtikelTerbaru([]);
+      });
+  }, []);
 
   // Custom Arrow Components
   const NextArrow = (props: any) => {
