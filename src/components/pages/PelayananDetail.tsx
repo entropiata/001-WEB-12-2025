@@ -2,16 +2,16 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
-import { 
-  ArrowLeft, 
-  Clock, 
-  Users, 
-  CheckCircle, 
+import {
+  ArrowLeft,
+  Clock,
+  Users,
+  CheckCircle,
   AlertCircle,
   Phone,
   Calendar
 } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ImageWithFallback } from '../common/ImageWithFallback';
 
 export function PelayananDetail() {
   const { slug } = useParams<{ slug: string }>();

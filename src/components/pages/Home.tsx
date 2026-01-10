@@ -16,11 +16,134 @@ import {
   Calendar,
   ArrowRight,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Sparkles,
+  Lightbulb,
+  Heart,
+  Shield,
+  Home as HomeIcon
 } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ImageWithFallback } from '../common/ImageWithFallback';
 import { fadeInUp, staggerContainer, cardScrollAnimation, hoverLift } from '../../utils/animations';
-import { AnimatedCounter } from '../ui/AnimatedCounter';
+import { AnimatedCounter } from '../common/AnimatedCounter';
+
+// Particle Background Component for Ber-Iman
+function ParticleBackgroundMotto() {
+  // Generate random particles
+  const particles = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 8 + 4,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 3 + 2,
+    delay: Math.random() * 2,
+  }));
+
+  return (
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut"
+      }}
+      className="relative inline-block"
+    >
+      {/* Particle Container */}
+      <div className="absolute inset-0 -m-20 overflow-visible pointer-events-none">
+        {particles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className="absolute rounded-full bg-emerald-400/30"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+              opacity: [0.3, 0.7, 0.3],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: particle.duration,
+              delay: particle.delay,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Main Container */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.3 }}
+        className="relative"
+      >
+        {/* Glowing background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-emerald-500/20 to-emerald-400/20 blur-2xl rounded-3xl" />
+
+        {/* Content Box */}
+        <div className="relative bg-gradient-to-br from-white via-emerald-50/50 to-white rounded-2xl px-12 py-6 shadow-2xl border-2 border-emerald-300/50 backdrop-blur-sm">
+          {/* Animated gradient text */}
+          <motion.p
+            className="text-5xl md:text-6xl font-bold"
+            style={{
+              background: "linear-gradient(135deg, #059669, #10b981, #34d399, #10b981, #059669)",
+              backgroundSize: "200% 200%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          >
+            "Ber-Iman"
+          </motion.p>
+
+          {/* Corner sparkles */}
+          <motion.div
+            className="absolute -top-2 -right-2 w-6 h-6"
+            animate={{
+              rotate: 360,
+              scale: [1, 1.3, 1]
+            }}
+            transition={{
+              rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+              scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+            }}
+          >
+            <Sparkles className="w-6 h-6 text-emerald-500" />
+          </motion.div>
+          <motion.div
+            className="absolute -bottom-2 -left-2 w-6 h-6"
+            animate={{
+              rotate: -360,
+              scale: [1, 1.3, 1]
+            }}
+            transition={{
+              rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+              scale: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }
+            }}
+          >
+            <Sparkles className="w-6 h-6 text-emerald-500" />
+          </motion.div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 
 export function Home() {
   const layananUtama = [
@@ -56,6 +179,34 @@ export function Home() {
     'Antrian Online',
     'Edukasi Kesehatan Digital',
     'Monitoring Ibu & Anak'
+  ];
+
+  const mottoList = [
+    {
+      icon: Sparkles,
+      title: 'BERSIH',
+      description: 'Kami selalu berupaya memberikan pelayanan yang terbaik dengan meningkatkan Kebersihan untuk menciptakan kenyamanan Pengunjung yang berobat di Puskesmas Pasongsongan.'
+    },
+    {
+      icon: Lightbulb,
+      title: 'INOVATIF',
+      description: 'Kami selalu berupaya memberikan pelayanan yang terbaik melalui kerja Tim untuk selalu meningkatkan kreatifitas dalam mencari Teknik pendekatan yang lebih baik untuk mencapai tujuan dan indikator Puskesmas.'
+    },
+    {
+      icon: Heart,
+      title: 'MANUSIAWI',
+      description: 'Kami senantiasa memperlakukan Klien, Pasien dan seluruh Karyawan secara manusiawi, menghormati dan menghargai hak azasi, martabat dan kewajiban.'
+    },
+    {
+      icon: Shield,
+      title: 'AMANAH',
+      description: 'Kami sebagai pemberi Layanan selalu bersikap Amanah yang dapat dipercaya baik dalam menjalankan tugas dengan selalu mengutamakan kepercayaan siap memberikan pelayanan dan menginformasikan, informasi yang akurat disesuaikan dengan kebutuhan masyarakat.'
+    },
+    {
+      icon: HomeIcon,
+      title: 'NYAMAN',
+      description: 'Kami senantiasa memberikan kenyamanan mendengar, merespon dengan cepat dan mengharapkan keterlibatan masyarakat dalam meningkatkan pelayanan dengan tujuan semua pelayanan memuaskan.'
+    }
   ];
 
   const artikelTerbaru = [
@@ -392,6 +543,101 @@ export function Home() {
               </div>
               <p className="text-white font-medium">Kunjungan Harian</p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Motto Section */}
+      <section className="py-16 bg-gradient-to-br from-emerald-50 via-white to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-4xl text-emerald-700 mb-8"
+            >
+              Motto Pelayanan Kami
+            </motion.h2>
+
+            {/* Particle Background Ber-Iman */}
+            <ParticleBackgroundMotto />
+
+            {/* Animated acronym breakdown */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg md:text-xl text-gray-700 font-semibold mb-3 max-w-4xl mx-auto mt-12"
+            >
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >Ber</motion.span>sih, {" "}
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >I</motion.span>novatif, {" "}
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >M</motion.span>anusiawi, {" "}
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >A</motion.span>manah dan {" "}
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >N</motion.span>yaman
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-gray-600 max-w-3xl mx-auto italic"
+            >
+              Kebijakan manajemen penyelenggaraan pelayanan kesehatan di Puskesmas Pasongsongan
+            </motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mottoList.map((motto, index) => {
+              const Icon = motto.icon;
+              return (
+                <motion.div
+                  key={index}
+                  {...cardScrollAnimation}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <motion.div {...hoverLift}>
+                    <Card className="hover:shadow-xl transition-all border-emerald-200 h-full bg-white">
+                      <CardContent className="p-6">
+                        <motion.div
+                          className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-lg"
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Icon className="w-8 h-8 text-white" />
+                        </motion.div>
+                        <h3 className="text-xl font-bold text-emerald-700 mb-3">{motto.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{motto.description}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

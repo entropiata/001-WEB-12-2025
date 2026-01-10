@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +13,7 @@ export function Navbar() {
         { name: 'Profil Puskesmas', href: '/profil#profil' },
         { name: 'Sambutan Kepala', href: '/profil#sambutan' },
         { name: 'Visi & Misi', href: '/profil#visi-misi' },
+        { name: 'Motto', href: '/profil#motto' },
         { name: 'Struktur Organisasi', href: '/profil#struktur' },
         { name: 'Penghargaan', href: '/profil#penghargaan' },
     ];

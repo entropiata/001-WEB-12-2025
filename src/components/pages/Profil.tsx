@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '../ui/card';
-import { Award, Users, Target } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { Award, Users, Target, Sparkles, Lightbulb, Heart, Shield, Home as HomeIcon } from 'lucide-react';
+import { ImageWithFallback } from '../common/ImageWithFallback';
 import { fadeInUp, cardScrollAnimation, hoverLift } from '../../utils/animations';
+
 
 export function Profil() {
   const location = useLocation();
@@ -32,6 +33,34 @@ export function Profil() {
     { tahun: '2023', nama: 'Juara 1 Lomba Inovasi Pelayanan Kesehatan' },
     { tahun: '2023', nama: 'Akreditasi Puskesmas - Madya' },
     { tahun: '2022', nama: 'Puskesmas Percontohan Program Stunting' },
+  ];
+
+  const mottoList = [
+    {
+      icon: Sparkles,
+      title: 'BERSIH',
+      description: 'Kami selalu berupaya memberikan pelayanan yang terbaik dengan meningkatkan Kebersihan untuk menciptakan kenyamanan Pengunjung yang berobat di Puskesmas Pasongsongan.'
+    },
+    {
+      icon: Lightbulb,
+      title: 'INOVATIF',
+      description: 'Kami selalu berupaya memberikan pelayanan yang terbaik melalui kerja Tim untuk selalu meningkatkan kreatifitas dalam mencari Teknik pendekatan yang lebih baik untuk mencapai tujuan dan indikator Puskesmas.'
+    },
+    {
+      icon: Heart,
+      title: 'MANUSIAWI',
+      description: 'Kami senantiasa memperlakukan Klien, Pasien dan seluruh Karyawan secara manusiawi, menghormati dan menghargai hak azasi, martabat dan kewajiban.'
+    },
+    {
+      icon: Shield,
+      title: 'AMANAH',
+      description: 'Kami sebagai pemberi Layanan selalu bersikap Amanah yang dapat dipercaya baik dalam menjalankan tugas dengan selalu mengutamakan kepercayaan siap memberikan pelayanan dan menginformasikan, informasi yang akurat disesuaikan dengan kebutuhan masyarakat.'
+    },
+    {
+      icon: HomeIcon,
+      title: 'NYAMAN',
+      description: 'Kami senantiasa memberikan kenyamanan mendengar, merespon dengan cepat dan mengharapkan keterlibatan masyarakat dalam meningkatkan pelayanan dengan tujuan semua pelayanan memuaskan.'
+    }
   ];
 
   return (
@@ -180,6 +209,135 @@ export function Profil() {
                 </ul>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Motto Section */}
+      <section id="motto" className="py-16 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-4xl text-emerald-700 mb-8"
+            >
+              Motto Pelayanan Kami
+            </motion.h2>
+
+            {/* Underline Accent Ber-Iman */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut"
+              }}
+              className="relative inline-block mb-6"
+            >
+              {/* Text */}
+              <h2 className="text-5xl md:text-6xl font-bold text-emerald-800 mb-2">
+                "Ber-Iman"
+              </h2>
+
+              {/* Animated Underline */}
+              <motion.div
+                className="relative h-1.5 bg-gradient-to-r from-transparent via-emerald-600 to-transparent rounded-full"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1,
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+              >
+                {/* Glowing dot that moves along the underline */}
+                <motion.div
+                  className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"
+                  animate={{
+                    left: ["0%", "100%", "0%"]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Animated acronym breakdown */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg md:text-xl text-gray-700 font-semibold mb-3 max-w-4xl mx-auto"
+            >
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >Ber</motion.span>sih, {" "}
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >I</motion.span>novatif, {" "}
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >M</motion.span>anusiawi, {" "}
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >A</motion.span>manah dan {" "}
+              <motion.span
+                whileHover={{ scale: 1.1, color: "#059669" }}
+                className="inline-block text-emerald-700 transition-colors cursor-default"
+              >N</motion.span>yaman
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-gray-600 max-w-3xl mx-auto italic"
+            >
+              Kebijakan manajemen penyelenggaraan pelayanan kesehatan di Puskesmas Pasongsongan
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mottoList.map((motto, index) => {
+              const Icon = motto.icon;
+              return (
+                <motion.div
+                  key={index}
+                  {...cardScrollAnimation}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <motion.div {...hoverLift}>
+                    <Card className="hover:shadow-xl transition-all border-emerald-200 h-full bg-white">
+                      <CardContent className="p-6">
+                        <motion.div
+                          className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-lg"
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Icon className="w-8 h-8 text-white" />
+                        </motion.div>
+                        <h3 className="text-xl font-bold text-emerald-700 mb-3">{motto.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{motto.description}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
