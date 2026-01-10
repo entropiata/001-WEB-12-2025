@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { X, Save, Loader2, Image as ImageIcon, AlertCircle } from 'lucide-react';
+import { X, Save, Loader2, Image as ImageIcon, AlertCircle, Upload } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 
@@ -36,6 +36,12 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
 
+    // Image upload states
+    const [imageMethod, setImageMethod] = useState<'url' | 'upload'>('url');
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [uploadProgress, setUploadProgress] = useState(false);
+    const [previewUrl, setPreviewUrl] = useState('');
+
     // Auto-generate slug from title
     const generateSlug = (text: string) => {
         return text
@@ -64,9 +70,46 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
             setContent(article.content);
             setExcerpt(article.excerpt || '');
             setImage(article.image || '');
+            setPreviewUrl(article.image || '');
             setStatus(article.status);
         }
     }, [article]);
+
+    // Handle file selection
+    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setSelectedFile(file);
+            // Create preview URL
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreviewUrl(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    // Handle file upload to server
+    const handleFileUpload = async (file: File): Promise<string> => {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        const token = localStorage.getItem('adminToken');
+        const response = await fetch(`${API_URL}/articles/upload`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (!data.success) {
+            throw new Error(data.message || 'Failed to upload image');
+        }
+
+        return data.data.url;
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -74,6 +117,15 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
         setLoading(true);
 
         try {
+            let finalImageUrl = image;
+
+            // If using upload method and file is selected, upload it first
+            if (imageMethod === 'upload' && selectedFile) {
+                setUploadProgress(true);
+                finalImageUrl = await handleFileUpload(selectedFile);
+                setUploadProgress(false);
+            }
+
             const token = localStorage.getItem('adminToken');
             const url = article
                 ? `${API_URL}/articles/${article.id}`
@@ -93,7 +145,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                     slug: slug || generateSlug(title),
                     content,
                     excerpt: excerpt || null,
-                    image: image || null,
+                    image: finalImageUrl || null,
                     status,
                 }),
             });
@@ -109,9 +161,10 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                 setError(data.message || 'Failed to save article');
             }
         } catch (err) {
-            setError('Unable to connect to server');
+            setError(err instanceof Error ? err.message : 'Unable to connect to server');
         } finally {
             setLoading(false);
+            setUploadProgress(false);
         }
     };
 
@@ -305,28 +358,108 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                     </div>
                                 </div>
 
-                                {/* Image URL */}
+                                {/* Image Input - Tabbed Interface */}
                                 <div>
-                                    <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Image URL
+                                    <label className="block text-sm font-medium text-gray-700 mb-3">
+                                        Article Image
                                     </label>
-                                    <div className="relative">
-                                        <ImageIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                        <input
-                                            id="image"
-                                            type="url"
-                                            value={image}
-                                            onChange={(e) => setImage(e.target.value)}
-                                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-                                            placeholder="https://example.com/image.jpg"
+
+                                    {/* Tab Switcher */}
+                                    <div className="flex gap-2 mb-4">
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setImageMethod('url');
+                                                setSelectedFile(null);
+                                                setPreviewUrl(image);
+                                            }}
+                                            className={`flex-1 px-4 py-2 rounded-lg font-medium transition-all ${imageMethod === 'url'
+                                                    ? 'bg-emerald-600 text-white shadow-md'
+                                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                                }`}
                                             disabled={loading}
-                                        />
+                                        >
+                                            <ImageIcon className="w-4 h-4 inline-block mr-2" />
+                                            Image URL
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setImageMethod('upload');
+                                                setImage('');
+                                            }}
+                                            className={`flex-1 px-4 py-2 rounded-lg font-medium transition-all ${imageMethod === 'upload'
+                                                    ? 'bg-emerald-600 text-white shadow-md'
+                                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                                }`}
+                                            disabled={loading}
+                                        >
+                                            <Upload className="w-4 h-4 inline-block mr-2" />
+                                            Upload File
+                                        </button>
                                     </div>
-                                    {image && (
+
+                                    {/* URL Input */}
+                                    {imageMethod === 'url' && (
+                                        <div>
+                                            <div className="relative">
+                                                <ImageIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                                <input
+                                                    id="image"
+                                                    type="url"
+                                                    value={image}
+                                                    onChange={(e) => {
+                                                        setImage(e.target.value);
+                                                        setPreviewUrl(e.target.value);
+                                                    }}
+                                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                                    placeholder="https://example.com/image.jpg"
+                                                    disabled={loading}
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* File Upload */}
+                                    {imageMethod === 'upload' && (
+                                        <div>
+                                            <label
+                                                htmlFor="file-upload"
+                                                className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-emerald-500 hover:bg-emerald-50 transition-all"
+                                            >
+                                                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                    <Upload className="w-8 h-8 text-gray-400 mb-2" />
+                                                    <p className="text-sm text-gray-600 font-medium">
+                                                        {selectedFile ? selectedFile.name : 'Click to upload or drag and drop'}
+                                                    </p>
+                                                    <p className="text-xs text-gray-500 mt-1">
+                                                        PNG, JPG, GIF, WebP (max 5MB)
+                                                    </p>
+                                                </div>
+                                                <input
+                                                    id="file-upload"
+                                                    type="file"
+                                                    className="hidden"
+                                                    accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
+                                                    onChange={handleFileSelect}
+                                                    disabled={loading}
+                                                />
+                                            </label>
+                                            {uploadProgress && (
+                                                <div className="mt-2 flex items-center gap-2 text-sm text-emerald-600">
+                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                    Uploading image...
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+
+                                    {/* Image Preview */}
+                                    {previewUrl && (
                                         <div className="mt-3">
                                             <p className="text-sm text-gray-600 mb-2">Preview:</p>
                                             <img
-                                                src={image}
+                                                src={previewUrl}
                                                 alt="Preview"
                                                 className="w-full max-w-md h-48 object-cover rounded-lg border border-gray-200"
                                                 onError={(e) => {
