@@ -12,11 +12,14 @@ import {
     Loader2,
     CheckCircle,
     XCircle,
-    Search
+    Search,
+    Clock
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { ArticleForm } from './ArticleForm';
+import { useAdminSessionTimeout } from '../../hooks/useInactivityTimeout';
+
 
 const API_URL = 'http://localhost:5000/api';
 
@@ -38,6 +41,9 @@ export function AdminDashboard() {
     const [editingArticle, setEditingArticle] = useState<Article | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterStatus, setFilterStatus] = useState<'all' | 'draft' | 'published'>('all');
+
+    // Initialize session timeout (20 minutes of inactivity)
+    useAdminSessionTimeout();
 
     useEffect(() => {
         fetchArticles();

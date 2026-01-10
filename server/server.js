@@ -6,6 +6,7 @@ require('dotenv').config();
 const { testConnection } = require('./config/db');
 const authRoutes = require('./routes/auth');
 const articlesRoutes = require('./routes/articles');
+const contactRoutes = require('./routes/contact');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/articles', articlesRoutes);
+app.use('/api/contact', contactRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -77,6 +79,7 @@ async function startServer() {
             console.log(`  POST   /api/articles (protected)`);
             console.log(`  PUT    /api/articles/:id (protected)`);
             console.log(`  DELETE /api/articles/:id (protected)`);
+            console.log(`  POST   /api/contact`);
             console.log('');
         });
     } catch (error) {

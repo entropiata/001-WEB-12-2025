@@ -1,0 +1,8 @@
+# Email Configuration for Contact Form
+# Add these lines to your server/.env file
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=entropiata.agency@gmail.com
+EMAIL_PASS=usph oafa zkwc hdbd
+EMAIL_TO=entropiata.agency@gmail.com

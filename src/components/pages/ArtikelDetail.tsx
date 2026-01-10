@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeSanitize from 'rehype-sanitize';
+import rehypeRaw from 'rehype-raw';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
-import { ArrowLeft, Calendar, Tag, Share2, Facebook, Twitter, Loader2 } from 'lucide-react';
+import { ArrowLeft, Calendar, Share2, Facebook, Twitter, Loader2 } from 'lucide-react';
 import { ImageWithFallback } from '../common/ImageWithFallback';
 
 const API_URL = 'http://localhost:5000/api';
@@ -139,7 +143,7 @@ export function ArtikelDetail() {
           {/* Share Buttons */}
           <Card className="mb-8 border-emerald-100">
             <CardContent className="p-6">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-gray-600">
                   <Share2 className="w-5 h-5" />
                   <span>Share this article:</span>
@@ -175,13 +179,63 @@ export function ArtikelDetail() {
             </CardContent>
           </Card>
 
-          {/* Article Content */}
+          {/* Article Content with Markdown */}
           <Card>
-            <CardContent className="p-8 prose prose-emerald max-w-none">
-              <div
-                className="artikel-content"
-                dangerouslySetInnerHTML={{ __html: artikel.content }}
-              />
+            <CardContent className="p-8">
+              <div className="prose prose-emerald prose-lg max-w-none markdown-content">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw, rehypeSanitize]}
+                  components={{
+                    // Custom styling for headings
+                    h1: ({ node, ...props }) => <h1 className="text-3xl font-bold text-emerald-700 mt-8 mb-4" {...props} />,
+                    h2: ({ node, ...props }) => <h2 className="text-2xl font-bold text-emerald-600 mt-6 mb-3" {...props} />,
+                    h3: ({ node, ...props }) => <h3 className="text-xl font-semibold text-emerald-600 mt-5 mb-2" {...props} />,
+                    // Custom styling for paragraphs
+                    p: ({ node, ...props }) => <p className="text-gray-700 leading-relaxed mb-4" {...props} />,
+                    // Custom styling for lists
+                    ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 space-y-2 ml-4" {...props} />,
+                    ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-2 ml-4" {...props} />,
+                    li: ({ node, ...props }) => <li className="text-gray-700 leading-relaxed" {...props} />,
+                    // Custom styling for emphasis
+                    strong: ({ node, ...props }) => <strong className="font-semibold text-gray-900" {...props} />,
+                    em: ({ node, ...props }) => <em className="italic text-gray-600" {...props} />,
+                    // Custom styling for links
+                    a: ({ node, ...props }) => (
+                      <a
+                        className="text-emerald-600 hover:text-emerald-700 underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        {...props}
+                      />
+                    ),
+                    // Custom styling for images
+                    img: ({ node, ...props }) => (
+                      <img
+                        className="rounded-lg shadow-md my-6 w-full"
+                        loading="lazy"
+                        {...props}
+                      />
+                    ),
+                    // Custom styling for blockquotes
+                    blockquote: ({ node, ...props }) => (
+                      <blockquote
+                        className="border-l-4 border-emerald-500 pl-4 italic text-gray-600 my-4"
+                        {...props}
+                      />
+                    ),
+                    // Custom styling for code blocks
+                    code: ({ node, inline, ...props }: any) =>
+                      inline ? (
+                        <code className="bg-gray-100 text-emerald-700 px-2 py-1 rounded text-sm" {...props} />
+                      ) : (
+                        <code className="block bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm my-4" {...props} />
+                      ),
+                  }}
+                >
+                  {artikel.content}
+                </ReactMarkdown>
+              </div>
             </CardContent>
           </Card>
 
@@ -200,46 +254,6 @@ export function ArtikelDetail() {
           </div>
         </div>
       </section>
-
-      <style>{`
-        .artikel-content h2 {
-          font-size: 1.75rem;
-          font-weight: 700;
-          color: #059669;
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-        }
-        .artikel-content h3 {
-          font-size: 1.375rem;
-          font-weight: 600;
-          color: #047857;
-          margin-top: 1.5rem;
-          margin-bottom: 0.75rem;
-        }
-        .artikel-content p {
-          color: #374151;
-          line-height: 1.75;
-          margin-bottom: 1rem;
-        }
-        .artikel-content ul {
-          margin-left: 1.5rem;
-          margin-bottom: 1rem;
-          list-style-type: disc;
-        }
-        .artikel-content li {
-          color: #374151;
-          line-height: 1.75;
-          margin-bottom: 0.5rem;
-        }
-        .artikel-content strong {
-          font-weight: 600;
-          color: #1f2937;
-        }
-        .artikel-content em {
-          font-style: italic;
-          color: #6b7280;
-        }
-      `}</style>
     </div>
   );
 }

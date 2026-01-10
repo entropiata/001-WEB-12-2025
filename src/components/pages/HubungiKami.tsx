@@ -4,8 +4,9 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Label } from '../ui/label';
-import { MapPin, Phone, Mail, Facebook, Instagram, Send } from 'lucide-react';
-import { toast } from 'sonner';
+import { MapPin, Phone, Mail, Facebook, Instagram, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+
+const API_URL = 'http://localhost:5000/api';
 
 export function HubungiKami() {
   const [formData, setFormData] = useState({
@@ -13,16 +14,41 @@ export function HubungiKami() {
     email: '',
     pesan: '',
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simulasi pengiriman form
-    if (formData.nama && formData.email && formData.pesan) {
-      toast.success('Pesan Anda telah terkirim! Kami akan segera menghubungi Anda.');
-      setFormData({ nama: '', email: '', pesan: '' });
-    } else {
-      toast.error('Mohon lengkapi semua field');
+    setError('');
+    setSuccess(false);
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSuccess(true);
+        setFormData({ nama: '', email: '', pesan: '' });
+
+        // Hide success message after 5 seconds
+        setTimeout(() => setSuccess(false), 5000);
+      } else {
+        setError(data.message || 'Gagal mengirim pesan');
+      }
+    } catch (err) {
+      console.error('Contact form error:', err);
+      setError('Tidak dapat terhubung ke server. Silakan coba lagi nanti.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -173,6 +199,28 @@ export function HubungiKami() {
               <Card className="border-emerald-100">
                 <CardContent className="p-8">
                   <h2 className="text-2xl text-emerald-700 mb-6">Kirim Pesan</h2>
+
+                  {/* Success Message */}
+                  {success && (
+                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-green-800">Pesan Berhasil Terkirim!</p>
+                        <p className="text-sm text-green-700 mt-1">
+                          Terima kasih telah menghubungi kami. Kami akan segera merespons pesan Anda.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Error Message */}
+                  {error && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+                      <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-red-800">{error}</p>
+                    </div>
+                  )}
+
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <Label htmlFor="nama">Nama Lengkap</Label>
@@ -189,12 +237,12 @@ export function HubungiKami() {
                     </div>
 
                     <div>
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">E-mail / No. Telepon</Label>
                       <Input
                         id="email"
                         name="email"
-                        type="email"
-                        placeholder="Masukkan email Anda"
+                        type="text"
+                        placeholder="Masukkan email atau nomor telepon Anda"
                         value={formData.email}
                         onChange={handleChange}
                         className="mt-2 border-emerald-200 focus:border-emerald-500"
@@ -212,6 +260,7 @@ export function HubungiKami() {
                         onChange={handleChange}
                         className="mt-2 border-emerald-200 focus:border-emerald-500 min-h-[150px]"
                         required
+                        disabled={loading}
                       />
                     </div>
 
@@ -219,9 +268,19 @@ export function HubungiKami() {
                       type="submit"
                       className="w-full bg-emerald-600 hover:bg-emerald-700"
                       size="lg"
+                      disabled={loading}
                     >
-                      <Send className="mr-2 w-4 h-4" />
-                      Kirim Pesan
+                      {loading ? (
+                        <>
+                          <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                          Mengirim...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 w-4 h-4" />
+                          Kirim Pesan
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>

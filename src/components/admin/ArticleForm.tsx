@@ -273,15 +273,36 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         id="content"
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
-                                        rows={12}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all resize-none"
-                                        placeholder="Write your article content here..."
+                                        rows={16}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all resize-none font-mono text-sm"
+                                        placeholder="Write your article content using Markdown...&#10;&#10;## Section Title&#10;&#10;This is a paragraph with **bold** and *italic* text.&#10;&#10;- List item 1&#10;- List item 2"
                                         required
                                         disabled={loading}
                                     />
-                                    <p className="mt-2 text-sm text-gray-500">
-                                        {content.length} characters
-                                    </p>
+                                    <div className="mt-2 flex items-start justify-between gap-4">
+                                        <div className="text-sm text-gray-500">
+                                            <p className="font-medium mb-1">✨ Markdown Formatting Supported:</p>
+                                            <p className="text-xs">
+                                                <code className="bg-gray-100 px-1 rounded">## Heading</code>
+                                                {' • '}
+                                                <code className="bg-gray-100 px-1 rounded">**bold**</code>
+                                                {' • '}
+                                                <code className="bg-gray-100 px-1 rounded">*italic*</code>
+                                                {' • '}
+                                                <code className="bg-gray-100 px-1 rounded">- list</code>
+                                                {' • '}
+                                                <code className="bg-gray-100 px-1 rounded">[link](url)</code>
+                                                {' • '}
+                                                <code className="bg-gray-100 px-1 rounded">![image](url)</code>
+                                            </p>
+                                            <p className="text-xs mt-1">
+                                                See <span className="text-emerald-600 font-medium">MARKDOWN_GUIDE.md</span> for full documentation
+                                            </p>
+                                        </div>
+                                        <p className="text-sm text-gray-500 whitespace-nowrap">
+                                            {content.length} characters
+                                        </p>
+                                    </div>
                                 </div>
 
                                 {/* Image URL */}

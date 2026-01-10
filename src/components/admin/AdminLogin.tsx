@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Lock, User, AlertCircle, Loader2 } from 'lucide-react';
+import { Lock, User, AlertCircle, Loader2, Clock } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 
@@ -9,10 +9,23 @@ const API_URL = 'http://localhost:5000/api';
 
 export function AdminLogin() {
     const navigate = useNavigate();
+    const location = useLocation();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [sessionMessage, setSessionMessage] = useState('');
     const [loading, setLoading] = useState(false);
+
+    // Check for session expiry message from location state
+    useEffect(() => {
+        const state = location.state as { message?: string };
+        if (state?.message) {
+            setSessionMessage(state.message);
+            // Clear the message after 10 seconds
+            const timer = setTimeout(() => setSessionMessage(''), 10000);
+            return () => clearTimeout(timer);
+        }
+    }, [location]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -67,6 +80,18 @@ export function AdminLogin() {
                             <h1 className="text-2xl font-bold text-gray-900 mb-2">Admin Panel</h1>
                             <p className="text-gray-600">Puskesmas Pasongsongan</p>
                         </div>
+
+                        {/* Session Expiry Message */}
+                        {sessionMessage && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-start gap-3"
+                            >
+                                <Clock className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                                <p className="text-sm text-amber-800">{sessionMessage}</p>
+                            </motion.div>
+                        )}
 
                         {/* Error Message */}
                         {error && (
@@ -138,11 +163,6 @@ export function AdminLogin() {
                                 )}
                             </Button>
                         </form>
-
-                        {/* Footer */}
-                        <div className="mt-6 text-center text-sm text-gray-500">
-                            <p>Default credentials: admin / admin123</p>
-                        </div>
                     </CardContent>
                 </Card>
             </motion.div>
