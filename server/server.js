@@ -8,6 +8,8 @@ const { testConnection } = require('./config/db');
 const authRoutes = require('./routes/auth');
 const articlesRoutes = require('./routes/articles');
 const contactRoutes = require('./routes/contact');
+const cleanupRoutes = require('./routes/cleanup');
+const scheduledCleanup = require('./services/scheduledCleanup');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -27,6 +29,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/auth', authRoutes);
 app.use('/api/articles', articlesRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/cleanup', cleanupRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -84,7 +87,14 @@ async function startServer() {
             console.log(`  PUT    /api/articles/:id (protected)`);
             console.log(`  DELETE /api/articles/:id (protected)`);
             console.log(`  POST   /api/contact`);
+            console.log(`  GET    /api/cleanup/stats (protected)`);
+            console.log(`  GET    /api/cleanup/status (protected)`);
+            console.log(`  GET    /api/cleanup/preview (protected)`);
+            console.log(`  POST   /api/cleanup/execute (protected)`);
             console.log('');
+
+            // Start scheduled cleanup
+            scheduledCleanup.start();
         });
     } catch (error) {
         console.error('❌ Failed to start server:', error);

@@ -3,6 +3,7 @@ const router = express.Router();
 const articlesController = require('../controllers/articlesController');
 const authMiddleware = require('../middleware/auth');
 const upload = require('../middleware/uploadMiddleware');
+const compressImage = require('../middleware/imageCompression');
 
 // Public routes (for frontend to fetch articles)
 router.get('/', articlesController.getAllArticles);
@@ -14,8 +15,8 @@ router.post('/', authMiddleware, articlesController.createArticle);
 router.put('/:id', authMiddleware, articlesController.updateArticle);
 router.delete('/:id', authMiddleware, articlesController.deleteArticle);
 
-// Image upload route (admin only)
-router.post('/upload', authMiddleware, upload.single('image'), (req, res) => {
+// Image upload route (admin only) - with automatic compression
+router.post('/upload', authMiddleware, upload.single('image'), compressImage, (req, res) => {
     try {
         if (!req.file) {
             return res.status(400).json({
@@ -29,11 +30,12 @@ router.post('/upload', authMiddleware, upload.single('image'), (req, res) => {
 
         res.json({
             success: true,
-            message: 'Image uploaded successfully',
+            message: 'Image uploaded and compressed successfully',
             data: {
                 filename: req.file.filename,
                 url: imageUrl,
-                size: req.file.size
+                size: req.file.size,
+                sizeKB: (req.file.size / 1024).toFixed(2)
             }
         });
     } catch (error) {
