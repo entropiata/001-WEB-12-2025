@@ -7,40 +7,28 @@ import { ArrowRight } from 'lucide-react';
 export function Inovasi() {
   const inovasiList = [
     {
-      slug: 'simpus-pasongsongan',
-      title: 'SIMPUS Pasongsongan',
-      shortDesc: 'Sistem Informasi Manajemen Puskesmas untuk pelayanan yang lebih efisien',
-      color: 'from-emerald-500 to-emerald-600',
+      slug: 'peniti-bidan',
+      title: 'PENITI BIDAN',
+      shortDesc: 'Pendampingan Ibu Hamil Risiko Tinggi Berbasis Teknologi dan Kolaborasi',
+      color: 'from-rose-500 to-pink-600',
     },
     {
-      slug: 'antrian-online',
-      title: 'Antrian Online',
-      shortDesc: 'Sistem antrean digital untuk mengurangi waktu tunggu pasien',
-      color: 'from-blue-500 to-blue-600',
+      slug: 'dinar-pousi',
+      title: 'DINAR POUSI',
+      shortDesc: 'Deteksi Penyakit Tidak Menular melalui Posyandu ILP',
+      color: 'from-blue-500 to-cyan-600',
     },
     {
-      slug: 'edukasi-kesehatan-digital',
-      title: 'Edukasi Kesehatan Digital',
-      shortDesc: 'Platform edukasi kesehatan melalui media digital dan sosial media',
-      color: 'from-purple-500 to-purple-600',
+      slug: 'gerpas-lima',
+      title: 'GERPAS LIMA',
+      shortDesc: 'Gerakan Pemberantasan Sarang Nyamuk untuk Pencegahan Penyakit',
+      color: 'from-emerald-500 to-green-600',
     },
     {
-      slug: 'monitoring-ibu-anak',
-      title: 'Monitoring Ibu & Anak',
-      shortDesc: 'Sistem monitoring kesehatan ibu hamil dan balita secara digital',
-      color: 'from-pink-500 to-pink-600',
-    },
-    {
-      slug: 'posyandu-digital',
-      title: 'Posyandu Digital',
-      shortDesc: 'Digitalisasi pencatatan dan pelaporan kegiatan posyandu',
-      color: 'from-orange-500 to-orange-600',
-    },
-    {
-      slug: 'telemedicine',
-      title: 'Telemedicine',
-      shortDesc: 'Konsultasi kesehatan jarak jauh untuk kemudahan akses layanan',
-      color: 'from-teal-500 to-teal-600',
+      slug: 'delima',
+      title: 'DELIMA',
+      shortDesc: 'Desa Eliminasi Kusta dan TBC Melalui Pemberdayaan Masyarakat',
+      color: 'from-purple-500 to-violet-600',
     },
   ];
 
