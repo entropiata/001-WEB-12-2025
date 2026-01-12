@@ -141,7 +141,7 @@ export function ArtikelDetail() {
           )}
 
           {/* Share Buttons */}
-          <Card className="mb-8 border-emerald-100">
+          <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-gray-600">

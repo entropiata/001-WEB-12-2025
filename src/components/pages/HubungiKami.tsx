@@ -123,7 +123,7 @@ export function HubungiKami() {
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   return (
-                    <Card key={index} className="border-emerald-100">
+                    <Card key={index} style={{ borderColor: '#A7F3D0' }}>
                       <CardContent className="p-6">
                         <div className="flex items-start gap-4">
                           <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -172,7 +172,7 @@ export function HubungiKami() {
               </div>
 
               {/* Jam Pelayanan */}
-              <Card className="mt-8 bg-emerald-50 border-emerald-200">
+              <Card className="mt-8 bg-emerald-50" style={{ borderColor: '#A7F3D0' }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl text-emerald-700 mb-4">Jam Pelayanan</h3>
                   <div className="space-y-2 text-gray-700">

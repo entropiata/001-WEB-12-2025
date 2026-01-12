@@ -420,7 +420,7 @@ export function Home() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <motion.div {...hoverLift}>
-                      <Card className="hover:shadow-lg transition-shadow border-emerald-100 h-full">
+                      <Card className="hover:shadow-lg transition-shadow h-full" style={{ borderColor: '#A7F3D0' }}>
                         <CardContent className="p-6 text-center">
                           <motion.div
                             className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"
@@ -445,7 +445,7 @@ export function Home() {
       {/* Jam Pelayanan */}
       <section className="py-16 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="max-w-2xl mx-auto border-emerald-200">
+          <Card className="max-w-2xl mx-auto" style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-8">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Clock className="w-8 h-8 text-emerald-600" />
@@ -627,7 +627,7 @@ export function Home() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <motion.div {...hoverLift}>
-                    <Card className="hover:shadow-xl transition-all border-emerald-200 h-full bg-white">
+                    <Card className="hover:shadow-xl transition-all h-full bg-white" style={{ borderColor: '#A7F3D0' }}>
                       <CardContent className="p-6">
                         <motion.div
                           className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-lg"
@@ -666,7 +666,7 @@ export function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <motion.div {...hoverLift}>
-                  <Card className="hover:shadow-lg transition-shadow bg-gradient-to-br from-emerald-50 to-white border-emerald-100 h-full">
+                  <Card className="hover:shadow-lg transition-shadow bg-gradient-to-br from-emerald-50 to-white h-full" style={{ borderColor: '#A7F3D0' }}>
                     <CardContent className="p-6 text-center">
                       <motion.div
                         className="w-20 h-20 bg-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4"
@@ -685,7 +685,7 @@ export function Home() {
 
           <div className="text-center mt-8">
             <Link to="/inovasi">
-              <Button className="bg-emerald-600 hover:bg-emerald-700">
+              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
                 Lihat Semua Inovasi
               </Button>
             </Link>
@@ -708,7 +708,7 @@ export function Home() {
               {artikelTerbaru.map((artikel, index) => (
                 <div key={index} className="px-3">
                   <Link to={`/artikel/${artikel.slug}`}>
-                    <Card className="hover:shadow-lg transition-all hover:scale-[1.02] h-full">
+                    <Card className="hover:shadow-lg transition-all hover:scale-[1.02] h-full" style={{ borderColor: '#A7F3D0' }}>
                       <div className="h-48 bg-gray-200 overflow-hidden">
                         <ImageWithFallback
                           src={artikel.image}

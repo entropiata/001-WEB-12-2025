@@ -19,14 +19,53 @@ export function Profil() {
     }
   }, [location]);
 
-  const strukturOrganisasi = [
-    { jabatan: 'Kepala Puskesmas', nama: 'dr. Ahmad Hidayat, M.Kes' },
-    { jabatan: 'Kepala Tata Usaha', nama: 'Siti Aminah, S.Sos' },
-    { jabatan: 'Penanggung Jawab UKM', nama: 'dr. Nur Azizah' },
-    { jabatan: 'Penanggung Jawab UKP', nama: 'dr. Budi Santoso' },
-    { jabatan: 'Koordinator Pelayanan KIA', nama: 'Bidan Dewi Sartika, AMd.Keb' },
-    { jabatan: 'Koordinator Laboratorium', nama: 'Andi Prasetyo, AMd.AK' },
-  ];
+  const strukturOrganisasi = {
+    kepala: 'Kepala Puskesmas',
+    clusters: [
+      {
+        name: 'Klaster 1 - Manajemen',
+        units: [
+          'Manajemen Inti',
+          'Manajemen Arsip',
+          'Manajemen Sumber Daya Manusia',
+          'Manajemen Sarana dan Prasarana',
+          'Manajemen Mutu',
+          'Manajemen Keuangan dan Aset',
+          'Manajemen SIMPUS Digital',
+          'Manajemen Jejaring',
+          'Manajemen Promosi Kesehatan'
+        ]
+      },
+      {
+        name: 'Klaster 2 - Ibu dan Anak',
+        units: [
+          'Ibu Hamil, Bersalin, dan Nifas',
+          'Anak Balita dan APRAS',
+          'Anak Usia Sekolah dan Remaja'
+        ]
+      },
+      {
+        name: 'Klaster 3 - Usia Dewasa dan Lansia',
+        units: [
+          'Pelayanan Usia Dewasa',
+          'Pelayanan Lanjut Usia'
+        ]
+      },
+      {
+        name: 'Klaster 4 - Pencegahan dan Pengendalian Penyakit Menular (P2M)',
+        units: [
+          'Surveilans Penyakit (SKDR)',
+          'Kesehatan Lingkungan (KESLING)'
+        ]
+      }
+    ],
+    lintasKlaster: [
+      'Kegawatdaruratan',
+      'Rawat Inap',
+      'Kefarmasian',
+      'Laboratorium'
+    ]
+  };
 
   const penghargaan = [
     { tahun: '2024', nama: 'Puskesmas Berprestasi Tingkat Kabupaten' },
@@ -91,19 +130,16 @@ export function Profil() {
       <section id="profil" className="py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...cardScrollAnimation}>
-            <Card>
+            <Card style={{ borderColor: '#A7F3D0' }}>
               <CardContent className="p-8">
                 <h2 className="text-3xl text-emerald-700 mb-6">Profil Puskesmas</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <p className="text-gray-700 mb-4">
-                      Puskesmas Pasongsongan merupakan pusat pelayanan kesehatan masyarakat yang berlokasi di Kecamatan Pasongsongan, Kabupaten Sumenep, Jawa Timur. Didirikan pada tahun 1985, puskesmas kami telah melayani masyarakat selama lebih dari 35 tahun.
+                    <p className="text-gray-700 mb-4 text-justify leading-relaxed">
+                      <strong>Puskesmas Pasongsongan</strong> merupakan Unit Pelaksana Teknis Dinas Kesehatan Kabupaten Sumenep yang menjadi <strong>satu-satunya Puskesmas induk di Kecamatan Pasongsongan</strong>, berlokasi di Desa Panaongan. Puskesmas ini melayani wilayah kerja seluas 119,01 km² yang mencakup 10 desa di kawasan pedesaan, dengan batas wilayah Laut Jawa di sebelah utara serta berbatasan dengan beberapa kecamatan dan Kabupaten Pamekasan.
                     </p>
-                    <p className="text-gray-700 mb-4">
-                      Dengan komitmen untuk memberikan pelayanan kesehatan yang berkualitas, terjangkau, dan mudah diakses, kami terus berinovasi dalam meningkatkan kualitas layanan kesehatan masyarakat.
-                    </p>
-                    <p className="text-gray-700">
-                      Puskesmas Pasongsongan melayani wilayah kerja yang mencakup 8 desa dengan jumlah penduduk sekitar 25.000 jiwa. Kami menyediakan berbagai layanan kesehatan mulai dari pelayanan promotif, preventif, kuratif, hingga rehabilitatif.
+                    <p className="text-gray-700 text-justify leading-relaxed">
+                      Berstatus sebagai Puskesmas Rawat Inap dan PONED, <strong>Puskesmas Pasongsongan</strong> menyelenggarakan pelayanan kesehatan primer secara komprehensif melalui sistem klaster terintegrasi. Didukung jejaring Pustu, Poskesdes, dan Posyandu, Puskesmas ini menyediakan layanan gawat darurat 24 jam, rawat inap tingkat pertama, rujukan, laboratorium, dan kefarmasian, serta telah meraih <strong>akreditasi Paripurna pada tahun 2023</strong> sebagai komitmen terhadap mutu pelayanan kesehatan masyarakat.
                     </p>
                   </div>
                   <div className="rounded-lg overflow-hidden">
@@ -123,7 +159,7 @@ export function Profil() {
       {/* Sambutan Kepala Puskesmas */}
       <section id="sambutan" className="py-16 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card>
+          <Card style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-8">
               <h2 className="text-3xl text-emerald-700 mb-8">Sambutan Kepala Puskesmas</h2>
               <div className="grid md:grid-cols-3 gap-8">
@@ -141,20 +177,20 @@ export function Profil() {
                   </div>
                 </div>
                 <div className="md:col-span-2">
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-gray-700 mb-4 text-justify leading-relaxed">
                     Assalamu'alaikum Warahmatullahi Wabarakatuh,
                   </p>
-                  <p className="text-gray-700 mb-4">
-                    Puji syukur kehadirat Allah SWT atas segala rahmat dan karunia-Nya. Selamat datang di website resmi Puskesmas Pasongsongan. Melalui platform digital ini, kami berharap dapat memberikan informasi yang transparan dan akses yang lebih mudah bagi masyarakat untuk mengetahui layanan kesehatan yang kami sediakan.
+                  <p className="text-gray-700 mb-4 text-justify leading-relaxed">
+                    Puji syukur kehadirat Allah SWT atas segala rahmat dan karunia-Nya. Kami mengucapkan selamat datang di <strong>website resmi Puskesmas Pasongsongan</strong>. Kehadiran media digital ini kami harapkan dapat menjadi sarana informasi yang transparan, akurat, dan mudah diakses oleh masyarakat dalam mengenal layanan serta program kesehatan yang kami selenggarakan.
                   </p>
-                  <p className="text-gray-700 mb-4">
-                    Puskesmas Pasongsongan berkomitmen untuk terus meningkatkan kualitas pelayanan kesehatan yang profesional, humanis, dan terjangkau bagi seluruh lapisan masyarakat. Kami percaya bahwa kesehatan adalah hak dasar setiap individu, dan melalui pelayanan prima yang kami berikan, kami berupaya mewujudkan masyarakat Pasongsongan yang sehat dan produktif.
+                  <p className="text-gray-700 mb-4 text-justify leading-relaxed">
+                    Puskesmas Pasongsongan berkomitmen untuk memberikan pelayanan kesehatan yang profesional, berkualitas, dan berorientasi pada kebutuhan masyarakat. Komitmen tersebut kami wujudkan melalui penerapan motto <strong>Ber-IMAN</strong>, yaitu <strong>Bersih</strong> dalam pelayanan, <strong>Inovatif</strong> dalam pengembangan program, <strong>Manusiawi</strong> dalam melayani, <strong>Amanah</strong> dalam menjalankan tugas, serta <strong>Nyaman</strong> bagi seluruh pengguna layanan. Kami meyakini bahwa kesehatan merupakan hak dasar setiap individu dan menjadi fondasi utama dalam mewujudkan masyarakat yang sehat dan produktif.
                   </p>
-                  <p className="text-gray-700 mb-4">
-                    Kami mengajak seluruh masyarakat untuk berpartisipasi aktif dalam program-program kesehatan yang kami selenggarakan. Mari bersama-sama kita ciptakan lingkungan yang sehat untuk generasi masa depan yang lebih baik.
+                  <p className="text-gray-700 mb-4 text-justify leading-relaxed">
+                    Kami mengajak seluruh masyarakat untuk berperan aktif dan berpartisipasi dalam setiap program kesehatan yang kami laksanakan. Dengan kerja sama dan sinergi yang baik antara Puskesmas dan masyarakat, mari kita wujudkan lingkungan yang sehat demi generasi Pasongsongan yang lebih baik di masa depan.
                   </p>
-                  <p className="text-gray-700">
-                    Wassalamu'alaikum Warahmatullahi Wabarakatuh
+                  <p className="text-gray-700 text-justify leading-relaxed">
+                    Wassalamu'alaikum Warahmatullahi Wabarakatuh.
                   </p>
                 </div>
               </div>
@@ -167,19 +203,19 @@ export function Profil() {
       <section id="visi-misi" className="py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="border-emerald-200">
+            <Card style={{ borderColor: '#A7F3D0' }}>
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Target className="w-8 h-8 text-emerald-600" />
                   <h2 className="text-2xl text-emerald-700">Visi</h2>
                 </div>
-                <p className="text-gray-700 italic">
-                  "Terwujudnya Masyarakat Pasongsongan yang Sehat, Mandiri, dan Sejahtera melalui Pelayanan Kesehatan yang Berkualitas dan Berkeadilan"
+                <p className="text-gray-700 italic text-left text-2xl font-semibold">
+                  Sumenep Unggul Mandiri dan Sejahtera
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-emerald-200">
+            <Card style={{ borderColor: '#A7F3D0' }}>
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Users className="w-8 h-8 text-emerald-600" />
@@ -187,24 +223,20 @@ export function Profil() {
                 </div>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1">•</span>
-                    <span>Meningkatkan akses dan mutu pelayanan kesehatan yang merata</span>
+                    <span className="text-emerald-600 mt-1 font-semibold">1.</span>
+                    <span>Menggerakkan pembangunan berwawasan Kesehatan</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1">•</span>
-                    <span>Mengembangkan sistem pelayanan kesehatan yang inovatif dan responsif</span>
+                    <span className="text-emerald-600 mt-1 font-semibold">2.</span>
+                    <span>Meningkatkan derajat kesehatan Masyarakat melalui pemberdayaan</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1">•</span>
-                    <span>Meningkatkan pemberdayaan masyarakat dalam bidang kesehatan</span>
+                    <span className="text-emerald-600 mt-1 font-semibold">3.</span>
+                    <span>Melindungi Kesehatan Masyarakat melalui pelayanan Paripurna</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1">•</span>
-                    <span>Mengembangkan sumber daya manusia yang profesional dan berkompeten</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1">•</span>
-                    <span>Meningkatkan kemitraan dengan berbagai pihak dalam pembangunan kesehatan</span>
+                    <span className="text-emerald-600 mt-1 font-semibold">4.</span>
+                    <span>Meningkatkan dan mendayagunakan sumber daya kesehatan</span>
                   </li>
                 </ul>
               </CardContent>
@@ -321,7 +353,7 @@ export function Profil() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <motion.div {...hoverLift}>
-                    <Card className="hover:shadow-xl transition-all border-emerald-200 h-full bg-white">
+                    <Card className="hover:shadow-xl transition-all h-full bg-white" style={{ borderColor: '#A7F3D0' }}>
                       <CardContent className="p-6">
                         <motion.div
                           className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-lg"
@@ -345,25 +377,84 @@ export function Profil() {
       {/* Struktur Organisasi */}
       <section id="struktur" className="py-16 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card>
+          <Card style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-8">
-              <h2 className="text-3xl text-emerald-700 mb-8">Struktur Organisasi</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {strukturOrganisasi.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    {...cardScrollAnimation}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <motion.div
-                      {...hoverLift}
-                      className="p-4 border border-emerald-200 rounded-lg hover:shadow-md transition-shadow h-full"
-                    >
-                      <h4 className="text-emerald-700 mb-2">{item.jabatan}</h4>
-                      <p className="text-gray-700">{item.nama}</p>
-                    </motion.div>
-                  </motion.div>
-                ))}
+              <h2 className="text-3xl text-emerald-700 mb-12 text-center">Struktur Organisasi</h2>
+
+              {/* Organizational Chart */}
+              <div className="space-y-8">
+
+                {/* Kepala Puskesmas */}
+                <div className="flex justify-center">
+                  <div className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white px-12 py-6 rounded-2xl shadow-xl">
+                    <h3 className="text-xl font-bold text-center">{strukturOrganisasi.kepala}</h3>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="flex justify-center">
+                  <div className="w-px h-8 bg-gradient-to-b from-emerald-500 to-transparent"></div>
+                </div>
+
+                {/* All Clusters */}
+                <div className="space-y-6">
+                  {strukturOrganisasi.clusters.map((cluster, clusterIndex) => (
+                    <div key={clusterIndex} className="bg-gradient-to-br from-white to-emerald-50/30 rounded-2xl border-2 border-emerald-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+                      {/* Cluster Header */}
+                      <div className="flex items-center gap-4 mb-6 pb-4 border-b-2 border-emerald-100">
+                        <div className="flex items-center justify-center w-12 h-12 bg-emerald-600 rounded-xl shadow-md flex-shrink-0">
+                          <span className="text-white font-bold text-lg">{clusterIndex + 1}</span>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-bold text-emerald-700">{cluster.name}</h3>
+                          <p className="text-xs text-gray-500">{cluster.units.length} Unit</p>
+                        </div>
+                      </div>
+
+                      {/* Units */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {cluster.units.map((unit, unitIndex) => (
+                          <div
+                            key={unitIndex}
+                            className="group bg-white p-4 rounded-lg border border-emerald-100 hover:border-emerald-400 hover:shadow-md transition-all cursor-default"
+                          >
+                            <div className="flex items-start gap-3">
+                              <div className="w-2 h-2 bg-emerald-500 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></div>
+                              <p className="text-sm text-gray-700 leading-relaxed">{unit}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Lintas Klaster */}
+                  <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 shadow-lg">
+                    <div className="flex items-center gap-4 mb-6 pb-4 border-b-2 border-white/20">
+                      <div className="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl backdrop-blur-sm flex-shrink-0">
+                        <span className="text-white font-bold text-xl">+</span>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-white">Lintas Klaster</h3>
+                        <p className="text-xs text-emerald-100">{strukturOrganisasi.lintasKlaster.length} Unit Pendukung</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                      {strukturOrganisasi.lintasKlaster.map((unit, index) => (
+                        <div
+                          key={index}
+                          className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all cursor-default"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                            <p className="text-sm text-white font-medium">{unit}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -373,7 +464,7 @@ export function Profil() {
       {/* Penghargaan */}
       <section id="penghargaan" className="py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card>
+          <Card style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-8">
                 <Award className="w-8 h-8 text-emerald-600" />
@@ -388,7 +479,8 @@ export function Profil() {
                   >
                     <motion.div
                       {...hoverLift}
-                      className="flex items-start gap-4 p-4 border border-emerald-100 rounded-lg hover:shadow-md transition-shadow"
+                      className="flex items-start gap-4 p-4 border rounded-lg hover:shadow-md transition-shadow"
+                      style={{ borderColor: '#A7F3D0' }}
                     >
                       <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
                         <Award className="w-8 h-8 text-emerald-600" />
@@ -404,7 +496,7 @@ export function Profil() {
             </CardContent>
           </Card>
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 }

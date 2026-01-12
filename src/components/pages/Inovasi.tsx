@@ -49,7 +49,7 @@ export function Inovasi() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Puskesmas Pasongsongan terus berinovasi dalam memberikan pelayanan kesehatan yang lebih baik, 
+              Puskesmas Pasongsongan terus berinovasi dalam memberikan pelayanan kesehatan yang lebih baik,
               efisien, dan mudah diakses oleh masyarakat melalui pemanfaatan teknologi dan metode pelayanan yang modern.
             </p>
           </div>
@@ -87,11 +87,11 @@ export function Inovasi() {
       {/* CTA Section */}
       <section className="py-16 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-emerald-200 overflow-hidden">
+          <Card className="overflow-hidden" style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-8 md:p-12 text-center">
               <h2 className="text-3xl text-emerald-700 mb-4">Punya Ide Inovasi?</h2>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Kami terbuka untuk saran dan masukan dari masyarakat untuk terus meningkatkan kualitas pelayanan kesehatan. 
+                Kami terbuka untuk saran dan masukan dari masyarakat untuk terus meningkatkan kualitas pelayanan kesehatan.
                 Hubungi kami untuk berbagi ide inovasi Anda.
               </p>
               <Link to="/hubungi-kami">

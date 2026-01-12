@@ -353,7 +353,7 @@ export function InovasiDetail() {
           </Card>
 
           {/* CTA */}
-          <div className="mt-12 p-8 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl border border-emerald-200">
+          <div className="mt-12 p-8 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl border" style={{ borderColor: '#A7F3D0' }}>
             <div className="text-center">
               <Users className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
               <h3 className="text-2xl text-emerald-700 mb-3">

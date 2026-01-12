@@ -19,13 +19,11 @@ export function Navbar() {
     ];
 
     const pelayananSubmenu = [
-        { name: 'Poli Umum', href: '/pelayanan/poli-umum' },
-        { name: 'Poli KIA & KB', href: '/pelayanan/poli-kia' },
-        { name: 'Poli Gigi', href: '/pelayanan/poli-gigi' },
-        { name: 'Poli Lansia', href: '/pelayanan/poli-lansia' },
-        { name: 'Poli Remaja', href: '/pelayanan/poli-remaja' },
-        { name: 'Laboratorium', href: '/pelayanan/laboratorium' },
-        { name: 'Imunisasi', href: '/pelayanan/imunisasi' },
+        { name: 'Klaster 1 – Manajemen', href: '/pelayanan/klaster-1' },
+        { name: 'Klaster 2 – Ibu dan Anak', href: '/pelayanan/klaster-2' },
+        { name: 'Klaster 3 – Usia Dewasa dan Lansia', href: '/pelayanan/klaster-3' },
+        { name: 'Klaster 4 – Penanggulangan Penyakit Menular', href: '/pelayanan/klaster-4' },
+        { name: 'Lintas Klaster', href: '/pelayanan/lintas-klaster' },
     ];
 
     const navigation = [

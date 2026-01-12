@@ -5,14 +5,10 @@ import { Card, CardContent } from "../ui/card";
 import {
   Stethoscope,
   Baby,
-  Smile,
   Users,
   Heart,
-  FlaskConical,
-  Syringe,
   Clipboard,
   CreditCard,
-  UserCheck,
   ArrowRight,
 } from "lucide-react";
 import { cardScrollAnimation, hoverLift } from "../../utils/animations";
@@ -31,84 +27,116 @@ export function Pelayanan() {
     }
   }, [location]);
 
-  const pelayananPoli = [
+  const clusterServices = [
     {
-      id: "poli-umum",
-      icon: Stethoscope,
-      title: "Poli Umum",
-      description:
-        "Pelayanan pemeriksaan dan pengobatan untuk penyakit umum seperti demam, batuk, pilek, dan keluhan kesehatan lainnya.",
-      jadwal: "Senin - Sabtu, 08.00 - 14.00 WIB",
+      id: "klaster-1",
+      name: "Klaster 1 – Manajemen",
+      icon: Clipboard,
+      description: "Manajemen dan administrasi Puskesmas",
+      services: [
+        "Manajemen inti Puskesmas",
+        "Manajemen arsip",
+        "Manajemen SDM",
+        "Manajemen sarana, prasarana, dan perbekalan kesehatan",
+        "Manajemen mutu pelayanan",
+        "Manajemen keuangan dan aset/BMD",
+        "Manajemen sistem informasi digital",
+        "Manajemen jejaring",
+        "Manajemen pemberdayaan masyarakat"
+      ],
+      document: "SK Struktur Organisasi"
     },
     {
-      id: "poli-kia",
+      id: "klaster-2",
+      name: "Klaster 2 – Ibu dan Anak",
       icon: Baby,
-      title: "Poli KIA & KB",
-      description:
-        "Pelayanan kesehatan ibu hamil, ibu menyusui, bayi, balita, serta konseling dan layanan Keluarga Berencana (KB).",
-      jadwal: "Senin - Sabtu, 08.00 - 14.00 WIB",
+      description: "Pelayanan kesehatan ibu hamil, bersalin, nifas, dan anak",
+      services: [
+        "Pelayanan kesehatan ibu hamil, bersalin, nifas",
+        "Pelayanan neonatal dan balita",
+        "Pelayanan anak prasekolah, usia sekolah, dan remaja",
+        "ANC, persalinan normal, nifas",
+        "Neonatal esensial",
+        "Imunisasi",
+        "SDIDTK",
+        "MTBS",
+        "Pelayanan gizi ibu dan anak",
+        "Skrining penyakit dan kesehatan jiwa",
+        "Kesehatan gigi dan mulut",
+        "Pengobatan umum",
+        "Gawat Darurat Maternal Neonatal",
+        "Perkesmas",
+        "Skrining kekerasan terhadap perempuan dan anak"
+      ],
+      document: "SK Struktur Organisasi"
     },
     {
-      id: "poli-gigi",
-      icon: Smile,
-      title: "Poli Gigi",
-      description:
-        "Pelayanan kesehatan gigi dan mulut termasuk penambalan, pencabutan, pembersihan karang gigi, dan konsultasi.",
-      jadwal: "Senin - Jumat, 08.00 - 13.00 WIB",
-    },
-    {
-      id: "poli-lansia",
+      id: "klaster-3",
+      name: "Klaster 3 – Usia Dewasa dan Lansia",
       icon: Users,
-      title: "Poli Lansia",
-      description:
-        "Pelayanan kesehatan khusus untuk lansia termasuk pemeriksaan rutin, pengelolaan penyakit degeneratif, dan senam lansia.",
-      jadwal: "Rabu & Jumat, 08.00 - 12.00 WIB",
+      description: "Pelayanan kesehatan usia dewasa dan lanjut usia",
+      services: [
+        "Pelayanan kesehatan usia dewasa",
+        "Pelayanan kesehatan lanjut usia",
+        "Skrining PTM dan penyakit menular",
+        "Skrining kesehatan jiwa",
+        "Skrining kebugaran jasmani",
+        "Skrining layak hamil dan geriatri",
+        "Kesehatan reproduksi (catin)",
+        "KB",
+        "Pelayanan gizi dewasa dan lansia",
+        "Pengobatan umum",
+        "Kesehatan gigi dan mulut",
+        "Kesehatan kerja",
+        "Perkesmas",
+        "Skrining kekerasan terhadap perempuan dan anak"
+      ],
+      document: "SK Struktur Organisasi"
     },
     {
-      id: "poli-remaja",
+      id: "klaster-4",
+      name: "Klaster 4 – Penanggulangan Penyakit Menular",
       icon: Heart,
-      title: "Poli Remaja",
-      description:
-        "Pelayanan kesehatan remaja termasuk konseling kesehatan reproduksi, gizi remaja, dan pemeriksaan kesehatan.",
-      jadwal: "Selasa & Kamis, 13.00 - 15.00 WIB",
+      description: "Pencegahan dan pengendalian penyakit menular",
+      services: [
+        "Pencegahan, kewaspadaan dini, dan respon",
+        "Surveilans penyakit",
+        "Penemuan kasus",
+        "Penyelidikan epidemiologi",
+        "Pengendalian vektor",
+        "ORI (Outbreak Response Immunization)",
+        "Pelayanan kesehatan lingkungan",
+        "Pengawasan kualitas lingkungan",
+        "Komunikasi Antar Pribadi (KAP)"
+      ],
+      document: "SK Struktur Organisasi"
     },
+    {
+      id: "lintas-klaster",
+      name: "Lintas Klaster",
+      icon: Stethoscope,
+      description: "Pelayanan pendukung lintas klaster",
+      services: [
+        "Pelayanan gawat darurat",
+        "Pelayanan kefarmasian",
+        "Pelayanan laboratorium (manusia, vektor, reservoir, dan lingkungan)"
+      ],
+      document: "SK Struktur Organisasi"
+    }
   ];
 
-  const pelayananUmum = [
+  const informasiTambahan = [
     {
-      id: "pendaftaran",
-      icon: UserCheck,
-      title: "Pendaftaran Pasien",
-      description:
-        "Layanan pendaftaran pasien baru dan lama dengan sistem antrean terorganisir untuk kenyamanan Anda.",
-    },
-    {
-      id: "bpjs",
       icon: CreditCard,
-      title: "Pelayanan BPJS",
+      title: "Pembayaran",
       description:
-        "Melayani pasien peserta BPJS Kesehatan untuk berbagai jenis pemeriksaan dan pengobatan sesuai ketentuan.",
+        "Kami menerima pembayaran tunai, BPJS Kesehatan, dan asuransi kesehatan lainnya.",
     },
     {
-      id: "rawat-jalan",
       icon: Clipboard,
-      title: "Rawat Jalan",
+      title: "Persyaratan",
       description:
-        "Pelayanan rawat jalan untuk pasien yang tidak memerlukan perawatan inap dengan fasilitas lengkap.",
-    },
-    {
-      id: "laboratorium",
-      icon: FlaskConical,
-      title: "Laboratorium",
-      description:
-        "Pemeriksaan laboratorium lengkap meliputi hematologi, kimia klinik, urinalisis, dan pemeriksaan lainnya.",
-    },
-    {
-      id: "imunisasi",
-      icon: Syringe,
-      title: "Imunisasi",
-      description:
-        "Program imunisasi lengkap untuk bayi, balita, anak sekolah, dan dewasa sesuai jadwal imunisasi nasional.",
+        "Membawa kartu identitas (KTP/KK) dan kartu BPJS (jika ada). Untuk pasien baru, silakan melakukan pendaftaran terlebih dahulu.",
     },
   ];
 
@@ -137,36 +165,36 @@ export function Pelayanan() {
         </div>
       </section>
 
-      {/* Pelayanan Poli */}
+      {/* Cluster Services */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <h2 className="text-3xl text-emerald-700 mb-3">
-              Pelayanan Poli
+              Pelayanan Berbasis Klaster
             </h2>
             <p className="text-gray-600">
-              Layanan poliklinik dengan tenaga medis profesional
-              dan berpengalaman
+              Sistem pelayanan terintegrasi berdasarkan klaster untuk memberikan layanan kesehatan yang komprehensif
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {pelayananPoli.map((layanan, index) => {
-              const Icon = layanan.icon;
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {clusterServices.map((cluster, index) => {
+              const Icon = cluster.icon;
               return (
                 <motion.div
                   key={index}
                   {...cardScrollAnimation}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Link to={`/pelayanan/${layanan.id}`}>
+                  <Link to={`/pelayanan/${cluster.id}`}>
                     <motion.div {...hoverLift}>
                       <Card
-                        id={layanan.id}
-                        className="hover:shadow-lg transition-all border-emerald-100 scroll-mt-20 h-full cursor-pointer"
+                        id={cluster.id}
+                        className="hover:shadow-lg transition-all scroll-mt-20 h-full cursor-pointer"
+                        style={{ borderColor: '#A7F3D0' }}
                       >
                         <CardContent className="p-6">
-                          <div className="flex items-start gap-4">
+                          <div className="flex items-start gap-4 mb-4">
                             <motion.div
                               className="w-14 h-14 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0"
                               whileHover={{ scale: 1.1, rotate: 5 }}
@@ -176,18 +204,20 @@ export function Pelayanan() {
                             </motion.div>
                             <div className="flex-1">
                               <div className="flex items-center justify-between mb-2">
-                                <h3 className="text-gray-900">
-                                  {layanan.title}
+                                <h3 className="text-lg font-bold text-gray-900">
+                                  {cluster.name}
                                 </h3>
                                 <ArrowRight className="w-5 h-5 text-emerald-600" />
                               </div>
-                              <p className="text-gray-600 text-sm mb-3">
-                                {layanan.description}
+                              <p className="text-gray-600 text-sm">
+                                {cluster.description}
                               </p>
-                              <div className="flex items-center gap-2 text-emerald-600 text-sm">
-                                <span className="inline-block w-2 h-2 bg-emerald-600 rounded-full"></span>
-                                <span>{layanan.jadwal}</span>
-                              </div>
+                            </div>
+                          </div>
+                          <div className="pt-4 border-t border-emerald-100">
+                            <div className="flex items-center justify-between text-sm">
+                              <span className="text-gray-500">{cluster.services.length} Jenis Pelayanan</span>
+                              <span className="text-emerald-600 font-medium">Lihat Detail →</span>
                             </div>
                           </div>
                         </CardContent>
@@ -201,70 +231,10 @@ export function Pelayanan() {
         </div>
       </section>
 
-      {/* Pelayanan Umum */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="text-3xl text-emerald-700 mb-3">
-              Pelayanan Umum
-            </h2>
-            <p className="text-gray-600">
-              Layanan penunjang kesehatan untuk mendukung
-              pemeriksaan dan pengobatan
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pelayananUmum.map((layanan, index) => {
-              const Icon = layanan.icon;
-              const isClickable =
-                layanan.id === "laboratorium" ||
-                layanan.id === "imunisasi";
-              const content = (
-                <Card
-                  key={index}
-                  id={layanan.id}
-                  className={`hover:shadow-lg transition-all border-emerald-100 scroll-mt-20 h-full ${isClickable ? "hover:scale-[1.02] cursor-pointer" : ""}`}
-                >
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-8 h-8 text-emerald-600" />
-                    </div>
-                    <div className="flex items-center justify-center gap-2 mb-3">
-                      <h3 className="text-gray-900">
-                        {layanan.title}
-                      </h3>
-                      {isClickable && (
-                        <ArrowRight className="w-5 h-5 text-emerald-600" />
-                      )}
-                    </div>
-                    <p className="text-gray-600 text-sm">
-                      {layanan.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-
-              if (isClickable) {
-                return (
-                  <Link
-                    key={index}
-                    to={`/pelayanan/${layanan.id}`}
-                  >
-                    {content}
-                  </Link>
-                );
-              }
-              return content;
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Informasi Tambahan */}
       <section className="py-16 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-emerald-200">
+          <Card style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-8">
               <h3 className="text-2xl text-emerald-700 mb-6">
                 Informasi Penting

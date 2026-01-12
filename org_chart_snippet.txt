@@ -1,0 +1,102 @@
+              {/* Organizational Chart Container */}
+              <div className="overflow-x-auto pb-8">
+                <div className="min-w-max">
+                  
+                  {/* Kepala Puskesmas */}
+                  <div className="flex flex-col items-center mb-8">
+                    <div className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white px-10 py-5 rounded-xl shadow-lg">
+                      <h3 className="text-lg font-bold whitespace-nowrap">{strukturOrganisasi.kepala}</h3>
+                    </div>
+                    {/* Vertical line down */}
+                    <div className="w-1 h-12 bg-emerald-500"></div>
+                    {/* Horizontal connector line */}
+                    <div className="relative w-full max-w-6xl">
+                      <div className="h-1 bg-emerald-500 w-full"></div>
+                      {/* Vertical lines to each cluster */}
+                      <div className="absolute top-0 left-[10%] w-1 h-12 bg-emerald-500"></div>
+                      <div className="absolute top-0 left-[30%] w-1 h-12 bg-emerald-500"></div>
+                      <div className="absolute top-0 left-[50%] w-1 h-12 bg-emerald-500"></div>
+                      <div className="absolute top-0 left-[70%] w-1 h-12 bg-emerald-500"></div>
+                      <div className="absolute top-0 left-[90%] w-1 h-12 bg-emerald-500"></div>
+                    </div>
+                  </div>
+
+                  {/* Clusters Row */}
+                  <div className="grid grid-cols-5 gap-6 max-w-6xl mx-auto">
+                    {/* Cluster 1 */}
+                    <div className="flex flex-col">
+                      <div className="bg-emerald-600 text-white px-4 py-3 rounded-t-lg text-center">
+                        <div className="font-bold text-sm mb-1">Klaster 1</div>
+                        <div className="text-xs">Manajemen</div>
+                      </div>
+                      <div className="bg-white border-2 border-emerald-200 rounded-b-lg p-3 space-y-2 flex-1">
+                        {strukturOrganisasi.clusters[0].units.map((unit, idx) => (
+                          <div key={idx} className="text-xs text-gray-700 p-2 bg-emerald-50 rounded border-l-2 border-emerald-500">
+                            {unit}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Cluster 2 */}
+                    <div className="flex flex-col">
+                      <div className="bg-emerald-600 text-white px-4 py-3 rounded-t-lg text-center">
+                        <div className="font-bold text-sm mb-1">Klaster 2</div>
+                        <div className="text-xs">Ibu dan Anak</div>
+                      </div>
+                      <div className="bg-white border-2 border-emerald-200 rounded-b-lg p-3 space-y-2 flex-1">
+                        {strukturOrganisasi.clusters[1].units.map((unit, idx) => (
+                          <div key={idx} className="text-xs text-gray-700 p-2 bg-emerald-50 rounded border-l-2 border-emerald-500">
+                            {unit}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Cluster 3 */}
+                    <div className="flex flex-col">
+                      <div className="bg-emerald-600 text-white px-4 py-3 rounded-t-lg text-center">
+                        <div className="font-bold text-sm mb-1">Klaster 3</div>
+                        <div className="text-xs">Dewasa & Lansia</div>
+                      </div>
+                      <div className="bg-white border-2 border-emerald-200 rounded-b-lg p-3 space-y-2 flex-1">
+                        {strukturOrganisasi.clusters[2].units.map((unit, idx) => (
+                          <div key={idx} className="text-xs text-gray-700 p-2 bg-emerald-50 rounded border-l-2 border-emerald-500">
+                            {unit}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Cluster 4 */}
+                    <div className="flex flex-col">
+                      <div className="bg-emerald-600 text-white px-4 py-3 rounded-t-lg text-center">
+                        <div className="font-bold text-sm mb-1">Klaster 4</div>
+                        <div className="text-xs">P2M</div>
+                      </div>
+                      <div className="bg-white border-2 border-emerald-200 rounded-b-lg p-3 space-y-2 flex-1">
+                        {strukturOrganisasi.clusters[3].units.map((unit, idx) => (
+                          <div key={idx} className="text-xs text-gray-700 p-2 bg-emerald-50 rounded border-l-2 border-emerald-500">
+                            {unit}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Lintas Klaster */}
+                    <div className="flex flex-col">
+                      <div className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white px-4 py-3 rounded-t-lg text-center">
+                        <div className="font-bold text-sm mb-1">Lintas</div>
+                        <div className="text-xs">Klaster</div>
+                      </div>
+                      <div className="bg-white border-2 border-emerald-300 rounded-b-lg p-3 space-y-2 flex-1">
+                        {strukturOrganisasi.lintasKlaster.map((unit, idx) => (
+                          <div key={idx} className="text-xs text-gray-700 p-2 bg-emerald-50 rounded border-l-2 border-emerald-600 font-medium">
+                            {unit}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
