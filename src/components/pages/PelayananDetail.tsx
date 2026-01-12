@@ -1,11 +1,12 @@
-import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import {
   ArrowLeft,
   CheckCircle,
-  FileText,
+  ClipboardList,
+  DollarSign,
+  Users,
 } from 'lucide-react';
 import { ImageWithFallback } from '../common/ImageWithFallback';
 
@@ -30,7 +31,16 @@ export function PelayananDetail() {
         'Manajemen jejaring',
         'Manajemen pemberdayaan masyarakat'
       ],
-      document: 'SK Struktur Organisasi'
+      document: 'SK Struktur Organisasi',
+      persyaratan: [
+        'Tidak ada persyaratan khusus'
+      ],
+      biaya: [
+        'Tidak dipungut biaya'
+      ],
+      jumlahPelaksana: [
+        '9 orang'
+      ]
     },
     'klaster-2': {
       title: 'Klaster 2 – Ibu dan Anak',
@@ -55,7 +65,24 @@ export function PelayananDetail() {
         'Perkesmas',
         'Skrining kekerasan terhadap perempuan dan anak'
       ],
-      document: 'SK Struktur Organisasi'
+      document: 'SK Struktur Organisasi',
+      persyaratan: [
+        'Kartu Identitas (KTP/KK)',
+        'Kartu Berobat',
+        'BPJS / JKN / KIS'
+      ],
+      biaya: [
+        { label: 'Umum', value: 'Sesuai Peraturan Bupati Sumenep Nomor 1 Tahun 2024' },
+        { label: 'BPJS / JKN / KIS', value: 'Gratis' }
+      ],
+      jumlahPelaksana: [
+        { label: 'Dokter Umum', value: '3 orang' },
+        { label: 'Dokter Gigi', value: '1 orang' },
+        { label: 'Perawat', value: '10 orang' },
+        { label: 'Bidan', value: '12 orang' },
+        { label: 'Gizi', value: '3 orang' },
+        { label: 'Perawat Gigi', value: '1 orang' }
+      ]
     },
     'klaster-3': {
       title: 'Klaster 3 – Usia Dewasa dan Lansia',
@@ -79,7 +106,20 @@ export function PelayananDetail() {
         'Perkesmas',
         'Skrining kekerasan terhadap perempuan dan anak'
       ],
-      document: 'SK Struktur Organisasi'
+      document: 'SK Struktur Organisasi',
+      persyaratan: [
+        'Kartu Identitas (KTP/KK)',
+        'Kartu Berobat',
+        'BPJS / JKN / KIS'
+      ],
+      biaya: [
+        { label: 'Umum', value: 'Sesuai Peraturan Bupati Sumenep Nomor 1 Tahun 2024' },
+        { label: 'BPJS / JKN / KIS', value: 'Gratis' }
+      ],
+      jumlahPelaksana: [
+        { label: 'Dokter Gigi', value: '2 orang' },
+        { label: 'Perawat Gigi', value: '1 orang' }
+      ]
     },
     'klaster-4': {
       title: 'Klaster 4 – Penanggulangan Penyakit Menular',
@@ -98,7 +138,22 @@ export function PelayananDetail() {
         'Pengawasan kualitas lingkungan',
         'Komunikasi Antar Pribadi (KAP)'
       ],
-      document: 'SK Struktur Organisasi'
+      document: 'SK Struktur Organisasi',
+      persyaratan: [
+        'Kartu Identitas (KTP/KK)',
+        'Kartu Berobat',
+        'BPJS / JKN / KIS'
+      ],
+      biaya: [
+        { label: 'Umum', value: 'Sesuai Peraturan Bupati Sumenep Nomor 1 Tahun 2024' },
+        { label: 'BPJS / JKN / KIS', value: 'Gratis' }
+      ],
+      jumlahPelaksana: [
+        { label: 'Dokter Umum', value: '1 orang' },
+        { label: 'Surveilans', value: '4 orang' },
+        { label: 'Tenaga Kesehatan Lingkungan', value: '1 orang' },
+        { label: 'Tenaga Promosi Kesehatan', value: '2 orang' }
+      ]
     },
     'lintas-klaster': {
       title: 'Lintas Klaster',
@@ -111,7 +166,25 @@ export function PelayananDetail() {
         'Pelayanan kefarmasian',
         'Pelayanan laboratorium (manusia, vektor, reservoir, dan lingkungan)'
       ],
-      document: 'SK Struktur Organisasi'
+      document: 'SK Struktur Organisasi',
+      persyaratan: [
+        'Kartu Identitas (KTP/KK)',
+        'Kartu Berobat',
+        'BPJS / JKN / KIS'
+      ],
+      biaya: [
+        { label: 'Umum', value: 'Sesuai Peraturan Bupati Sumenep Nomor 1 Tahun 2024' },
+        { label: 'BPJS / JKN / KIS', value: 'Gratis' }
+      ],
+      jumlahPelaksana: [
+        { label: 'Dokter Umum', value: '2 orang' },
+        { label: 'Dokter Gigi', value: '1 orang' },
+        { label: 'Perawat', value: '25 orang' },
+        { label: 'Bidan', value: '27 orang' },
+        { label: 'Nutrisionis', value: '3 orang' },
+        { label: 'Apoteker', value: '1 orang' },
+        { label: 'Analis Kesehatan', value: '4 orang' }
+      ]
     }
   };
 
@@ -162,7 +235,7 @@ export function PelayananDetail() {
           </div>
 
           {/* Description */}
-          <Card className="mb-8">
+          <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-8">
               <h2 className="text-2xl text-emerald-700 mb-4">Tentang Klaster</h2>
               <p className="text-gray-700 leading-relaxed">{cluster.description}</p>
@@ -190,23 +263,95 @@ export function PelayananDetail() {
             </CardContent>
           </Card>
 
-          {/* Dokumen */}
-          {cluster.document && (
-            <Card style={{ borderColor: '#A7F3D0' }}>
+          {/* Persyaratan */}
+          {cluster.persyaratan && (
+            <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
               <CardContent className="p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <FileText className="w-6 h-6 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Dokumen Terkait</h2>
+                <div className="flex items-center gap-3 mb-6">
+                  <ClipboardList className="w-6 h-6 text-emerald-600" />
+                  <h2 className="text-2xl text-emerald-700">Persyaratan</h2>
                 </div>
-                <div className="bg-emerald-50 p-4 rounded-lg">
-                  <p className="text-gray-700 flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-emerald-600" />
-                    {cluster.document}
-                  </p>
+                <div className="space-y-3">
+                  {cluster.persyaratan.map((item: string, index: number) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 p-3 bg-emerald-50 rounded-lg"
+                    >
+                      <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
           )}
+
+          {/* Biaya/Tarif */}
+          {cluster.biaya && (
+            <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
+              <CardContent className="p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <DollarSign className="w-6 h-6 text-emerald-600" />
+                  <h2 className="text-2xl text-emerald-700">Biaya/Tarif</h2>
+                </div>
+                <div className="space-y-3">
+                  {cluster.biaya.map((item: any, index: number) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 p-4 bg-emerald-50 rounded-lg"
+                    >
+                      {typeof item === 'string' ? (
+                        <>
+                          <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{item}</span>
+                        </>
+                      ) : (
+                        <div className="flex-1">
+                          <div className="font-semibold text-emerald-700 mb-1">
+                            {item.label}
+                          </div>
+                          <div className="text-gray-700">{item.value}</div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Jumlah Pelaksana */}
+          {cluster.jumlahPelaksana && (
+            <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
+              <CardContent className="p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <Users className="w-6 h-6 text-emerald-600" />
+                  <h2 className="text-2xl text-emerald-700">Jumlah Pelaksana</h2>
+                </div>
+                <div className="space-y-3">
+                  {cluster.jumlahPelaksana.map((item: any, index: number) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 p-4 bg-emerald-50 rounded-lg"
+                    >
+                      {typeof item === 'string' ? (
+                        <>
+                          <Users className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{item}</span>
+                        </>
+                      ) : (
+                        <div className="flex-1 flex justify-between items-center">
+                          <span className="font-medium text-gray-900">{item.label}</span>
+                          <span className="text-emerald-700 font-semibold">{item.value}</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
         </div>
       </section>
     </div>

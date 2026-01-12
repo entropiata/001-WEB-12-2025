@@ -21,7 +21,15 @@ import {
   Lightbulb,
   Heart,
   Shield,
-  Home as HomeIcon
+  Home as HomeIcon,
+  Award,
+  MapPin,
+  Users,
+  Activity,
+  UserCheck,
+  HeartPulse,
+  Baby as BabyIcon,
+  Bed
 } from 'lucide-react';
 import { ImageWithFallback } from '../common/ImageWithFallback';
 import { fadeInUp, staggerContainer, cardScrollAnimation, hoverLift } from '../../utils/animations';
@@ -499,6 +507,13 @@ export function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-center"
             >
+              <motion.div
+                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Award className="w-8 h-8 text-white" />
+              </motion.div>
               <div className="mb-3">
                 <div className="text-5xl md:text-6xl font-bold mb-2">
                   <AnimatedCounter value={35} suffix="+" duration={2.5} />
@@ -513,6 +528,13 @@ export function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-center"
             >
+              <motion.div
+                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <MapPin className="w-8 h-8 text-white" />
+              </motion.div>
               <div className="mb-3">
                 <div className="text-5xl md:text-6xl font-bold mb-2">
                   <AnimatedCounter value={8} duration={2} />
@@ -527,6 +549,13 @@ export function Home() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center"
             >
+              <motion.div
+                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Users className="w-8 h-8 text-white" />
+              </motion.div>
               <div className="mb-3">
                 <div className="text-5xl md:text-6xl font-bold mb-2">
                   <AnimatedCounter value={25000} suffix="+" duration={2.5} />
@@ -541,6 +570,13 @@ export function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center"
             >
+              <motion.div
+                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Activity className="w-8 h-8 text-white" />
+              </motion.div>
               <div className="mb-3">
                 <div className="text-5xl md:text-6xl font-bold mb-2">
                   <AnimatedCounter value={100} suffix="+" duration={2} />
@@ -548,6 +584,90 @@ export function Home() {
                 <p className="text-emerald-100 text-sm uppercase tracking-wide">Pasien</p>
               </div>
               <p className="text-white font-medium">Kunjungan Harian</p>
+            </motion.div>
+
+            <motion.div
+              {...cardScrollAnimation}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-center"
+            >
+              <motion.div
+                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <UserCheck className="w-8 h-8 text-white" />
+              </motion.div>
+              <div className="mb-3">
+                <div className="text-5xl md:text-6xl font-bold mb-2">
+                  <AnimatedCounter value={7} duration={2} />
+                </div>
+                <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
+              </div>
+              <p className="text-white font-medium">Dokter</p>
+            </motion.div>
+
+            <motion.div
+              {...cardScrollAnimation}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-center"
+            >
+              <motion.div
+                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <HeartPulse className="w-8 h-8 text-white" />
+              </motion.div>
+              <div className="mb-3">
+                <div className="text-5xl md:text-6xl font-bold mb-2">
+                  <AnimatedCounter value={35} duration={2} />
+                </div>
+                <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
+              </div>
+              <p className="text-white font-medium">Perawat</p>
+            </motion.div>
+
+            <motion.div
+              {...cardScrollAnimation}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="text-center"
+            >
+              <motion.div
+                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <BabyIcon className="w-8 h-8 text-white" />
+              </motion.div>
+              <div className="mb-3">
+                <div className="text-5xl md:text-6xl font-bold mb-2">
+                  <AnimatedCounter value={39} duration={2} />
+                </div>
+                <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
+              </div>
+              <p className="text-white font-medium">Bidan</p>
+            </motion.div>
+
+            <motion.div
+              {...cardScrollAnimation}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="text-center"
+            >
+              <motion.div
+                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Bed className="w-8 h-8 text-white" />
+              </motion.div>
+              <div className="mb-3">
+                <div className="text-5xl md:text-6xl font-bold mb-2">
+                  <AnimatedCounter value={10} duration={2} />
+                </div>
+                <p className="text-emerald-100 text-sm uppercase tracking-wide">Kamar</p>
+              </div>
+              <p className="text-white font-medium">Kamar Rawat Inap</p>
             </motion.div>
           </div>
         </div>
