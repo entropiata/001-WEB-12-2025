@@ -9,9 +9,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import {
   Stethoscope,
   Baby,
-  Smile,
-  FlaskConical,
-  Syringe,
+  Users,
+  Clipboard,
   Clock,
   Calendar,
   ArrowRight,
@@ -148,29 +147,34 @@ function ParticleBackgroundMotto() {
 export function Home() {
   const layananUtama = [
     {
-      icon: Stethoscope,
-      title: 'Poli Umum',
-      description: 'Pelayanan kesehatan umum untuk berbagai keluhan'
+      id: "klaster-1",
+      icon: Clipboard,
+      title: 'Klaster 1 – Manajemen',
+      description: 'Manajemen dan administrasi Puskesmas'
     },
     {
+      id: "klaster-2",
       icon: Baby,
-      title: 'Poli KIA',
-      description: 'Kesehatan Ibu dan Anak, termasuk KB'
+      title: 'Klaster 2 – Ibu dan Anak',
+      description: 'Pelayanan kesehatan ibu hamil, bersalin, nifas, dan anak'
     },
     {
-      icon: Smile,
-      title: 'Poli Gigi',
-      description: 'Perawatan dan konsultasi kesehatan gigi'
+      id: "klaster-3",
+      icon: Users,
+      title: 'Klaster 3 – Usia Dewasa dan Lansia',
+      description: 'Pelayanan kesehatan usia dewasa dan lanjut usia'
     },
     {
-      icon: FlaskConical,
-      title: 'Laboratorium',
-      description: 'Pemeriksaan laboratorium lengkap'
+      id: "klaster-4",
+      icon: Heart,
+      title: 'Klaster 4 – Penanggulangan Penyakit Menular',
+      description: 'Pencegahan dan pengendalian penyakit menular'
     },
     {
-      icon: Syringe,
-      title: 'Imunisasi',
-      description: 'Program imunisasi lengkap untuk segala usia'
+      id: "lintas-klaster",
+      icon: Stethoscope,
+      title: 'Lintas Klaster',
+      description: 'Pelayanan pendukung lintas klaster'
     }
   ];
 
@@ -419,21 +423,23 @@ export function Home() {
                     {...cardScrollAnimation}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <motion.div {...hoverLift}>
-                      <Card className="hover:shadow-lg transition-shadow h-full" style={{ borderColor: '#A7F3D0' }}>
-                        <CardContent className="p-6 text-center">
-                          <motion.div
-                            className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"
-                            whileHover={{ scale: 1.1, rotate: 5 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <Icon className="w-8 h-8 text-emerald-600" />
-                          </motion.div>
-                          <h3 className="mb-2 text-gray-900">{layanan.title}</h3>
-                          <p className="text-sm text-gray-600">{layanan.description}</p>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
+                    <Link to={`/pelayanan/${layanan.id}`}>
+                      <motion.div {...hoverLift}>
+                        <Card className="hover:shadow-lg transition-shadow h-full cursor-pointer" style={{ borderColor: '#A7F3D0' }}>
+                          <CardContent className="p-6 text-center">
+                            <motion.div
+                              className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                              whileHover={{ scale: 1.1, rotate: 5 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <Icon className="w-8 h-8 text-emerald-600" />
+                            </motion.div>
+                            <h3 className="mb-2 text-gray-900">{layanan.title}</h3>
+                            <p className="text-sm text-gray-600">{layanan.description}</p>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    </Link>
                   </motion.div>
                 );
               })}
