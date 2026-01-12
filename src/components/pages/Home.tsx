@@ -21,19 +21,11 @@ import {
   Lightbulb,
   Heart,
   Shield,
-  Home as HomeIcon,
-  Award,
-  MapPin,
-  Users,
-  Activity,
-  UserCheck,
-  HeartPulse,
-  Baby as BabyIcon,
-  Bed
+  Home as HomeIcon
 } from 'lucide-react';
 import { ImageWithFallback } from '../common/ImageWithFallback';
 import { fadeInUp, staggerContainer, cardScrollAnimation, hoverLift } from '../../utils/animations';
-import { AnimatedCounter } from '../common/AnimatedCounter';
+import { InteractiveStatistics } from '../common/InteractiveStatistics';
 
 // Particle Background Component for Ber-Iman
 function ParticleBackgroundMotto() {
@@ -501,175 +493,7 @@ export function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <motion.div
-              {...cardScrollAnimation}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center"
-            >
-              <motion.div
-                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Award className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="mb-3">
-                <div className="text-5xl md:text-6xl font-bold mb-2">
-                  <AnimatedCounter value={35} suffix="+" duration={2.5} />
-                </div>
-                <p className="text-emerald-100 text-sm uppercase tracking-wide">Tahun</p>
-              </div>
-              <p className="text-white font-medium">Pengalaman Melayani</p>
-            </motion.div>
-
-            <motion.div
-              {...cardScrollAnimation}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center"
-            >
-              <motion.div
-                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <MapPin className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="mb-3">
-                <div className="text-5xl md:text-6xl font-bold mb-2">
-                  <AnimatedCounter value={8} duration={2} />
-                </div>
-                <p className="text-emerald-100 text-sm uppercase tracking-wide">Desa</p>
-              </div>
-              <p className="text-white font-medium">Wilayah Kerja</p>
-            </motion.div>
-
-            <motion.div
-              {...cardScrollAnimation}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center"
-            >
-              <motion.div
-                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Users className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="mb-3">
-                <div className="text-5xl md:text-6xl font-bold mb-2">
-                  <AnimatedCounter value={25000} suffix="+" duration={2.5} />
-                </div>
-                <p className="text-emerald-100 text-sm uppercase tracking-wide">Jiwa</p>
-              </div>
-              <p className="text-white font-medium">Populasi Terlayani</p>
-            </motion.div>
-
-            <motion.div
-              {...cardScrollAnimation}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-center"
-            >
-              <motion.div
-                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Activity className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="mb-3">
-                <div className="text-5xl md:text-6xl font-bold mb-2">
-                  <AnimatedCounter value={100} suffix="+" duration={2} />
-                </div>
-                <p className="text-emerald-100 text-sm uppercase tracking-wide">Pasien</p>
-              </div>
-              <p className="text-white font-medium">Kunjungan Harian</p>
-            </motion.div>
-
-            <motion.div
-              {...cardScrollAnimation}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-center"
-            >
-              <motion.div
-                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <UserCheck className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="mb-3">
-                <div className="text-5xl md:text-6xl font-bold mb-2">
-                  <AnimatedCounter value={7} duration={2} />
-                </div>
-                <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
-              </div>
-              <p className="text-white font-medium">Dokter</p>
-            </motion.div>
-
-            <motion.div
-              {...cardScrollAnimation}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-center"
-            >
-              <motion.div
-                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <HeartPulse className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="mb-3">
-                <div className="text-5xl md:text-6xl font-bold mb-2">
-                  <AnimatedCounter value={35} duration={2} />
-                </div>
-                <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
-              </div>
-              <p className="text-white font-medium">Perawat</p>
-            </motion.div>
-
-            <motion.div
-              {...cardScrollAnimation}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="text-center"
-            >
-              <motion.div
-                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <BabyIcon className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="mb-3">
-                <div className="text-5xl md:text-6xl font-bold mb-2">
-                  <AnimatedCounter value={39} duration={2} />
-                </div>
-                <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
-              </div>
-              <p className="text-white font-medium">Bidan</p>
-            </motion.div>
-
-            <motion.div
-              {...cardScrollAnimation}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-center"
-            >
-              <motion.div
-                className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Bed className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="mb-3">
-                <div className="text-5xl md:text-6xl font-bold mb-2">
-                  <AnimatedCounter value={10} duration={2} />
-                </div>
-                <p className="text-emerald-100 text-sm uppercase tracking-wide">Kamar</p>
-              </div>
-              <p className="text-white font-medium">Kamar Rawat Inap</p>
-            </motion.div>
-          </div>
+          <InteractiveStatistics />
         </div>
       </section>
 
@@ -704,26 +528,11 @@ export function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg md:text-xl text-gray-700 font-semibold mb-3 max-w-4xl mx-auto mt-12"
             >
-              <motion.span
-                whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
-              >Ber</motion.span>sih, {" "}
-              <motion.span
-                whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
-              >I</motion.span>novatif, {" "}
-              <motion.span
-                whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
-              >M</motion.span>anusiawi, {" "}
-              <motion.span
-                whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
-              >A</motion.span>manah dan {" "}
-              <motion.span
-                whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
-              >N</motion.span>yaman
+              <span className="text-emerald-700">Ber</span>sih, {" "}
+              <span className="text-emerald-700">I</span>novatif, {" "}
+              <span className="text-emerald-700">M</span>anusiawi, {" "}
+              <span className="text-emerald-700">A</span>manah dan {" "}
+              <span className="text-emerald-700">N</span>yaman
             </motion.p>
 
             <motion.p
