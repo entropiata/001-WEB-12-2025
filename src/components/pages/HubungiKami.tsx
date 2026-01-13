@@ -266,7 +266,7 @@ export function HubungiKami() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-maroon-600 hover:bg-maroon-700"
+                      className="w-full bg-maroon-600 hover:bg-maroon-700 text-white"
                       size="lg"
                       disabled={loading}
                     >

@@ -129,7 +129,7 @@ export function Artikel() {
                 onClick={() => handleCategoryChange(category)}
                 className={
                   selectedCategory === category
-                    ? 'bg-maroon-600 hover:bg-maroon-700'
+                    ? 'bg-maroon-600 hover:bg-maroon-700 text-white'
                     : 'border-maroon-600 text-maroon-600 hover:bg-maroon-50'
                 }
               >

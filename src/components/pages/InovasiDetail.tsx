@@ -239,7 +239,7 @@ export function InovasiDetail() {
           </div>
 
           {/* Description */}
-          <Card className="mb-8">
+          <Card className="mb-8 border-maroon-100">
             <CardContent className="p-8">
               <h2 className="text-2xl text-maroon-700 mb-4">Deskripsi Singkat</h2>
               <p className="text-gray-700 leading-relaxed">{inovasi.description}</p>
@@ -248,7 +248,7 @@ export function InovasiDetail() {
 
           {/* Latar Belakang */}
           {inovasi.latarBelakang && (
-            <Card className="mb-8">
+            <Card className="mb-8 border-maroon-100">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <FileText className="w-6 h-6 text-maroon-600" />
@@ -260,7 +260,7 @@ export function InovasiDetail() {
           )}
 
           {/* Tujuan */}
-          <Card className="mb-8">
+          <Card className="mb-8 border-maroon-100">
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <Target className="w-6 h-6 text-maroon-600" />
@@ -281,7 +281,7 @@ export function InovasiDetail() {
 
           {/* Sasaran */}
           {inovasi.sasaran && (
-            <Card className="mb-8">
+            <Card className="mb-8 border-maroon-100">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <MapPin className="w-6 h-6 text-maroon-600" />
@@ -294,7 +294,7 @@ export function InovasiDetail() {
 
           {/* Mekanisme / Cara Kerja */}
           {inovasi.mekanisme && (
-            <Card className="mb-8">
+            <Card className="mb-8 border-maroon-100">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Cog className="w-6 h-6 text-maroon-600" />
@@ -316,7 +316,7 @@ export function InovasiDetail() {
 
           {/* Keunggulan / Nilai Inovatif */}
           {inovasi.keunggulan && (
-            <Card className="mb-8">
+            <Card className="mb-8 border-maroon-100">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Star className="w-6 h-6 text-maroon-600" />
@@ -335,7 +335,7 @@ export function InovasiDetail() {
           )}
 
           {/* Manfaat */}
-          <Card>
+          <Card className="border-maroon-100">
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <TrendingUp className="w-6 h-6 text-maroon-600" />
@@ -353,7 +353,7 @@ export function InovasiDetail() {
           </Card>
 
           {/* CTA */}
-          <div className="mt-12 p-8 bg-gradient-to-br from-maroon-50 to-maroon-100 rounded-xl border" style={{ borderColor: '#f9d5d5' }}>
+          <div className="mt-12 p-8 bg-gradient-to-br from-maroon-50 to-maroon-100 rounded-xl border border-maroon-100">
             <div className="text-center">
               <Users className="w-12 h-12 text-maroon-600 mx-auto mb-4" />
               <h3 className="text-2xl text-maroon-700 mb-3">
@@ -363,7 +363,7 @@ export function InovasiDetail() {
                 Hubungi kami untuk informasi lebih lanjut tentang inovasi ini dan bagaimana Anda dapat memanfaatkannya.
               </p>
               <Link to="/hubungi-kami">
-                <Button size="lg" className="bg-maroon-600 hover:bg-maroon-700">
+                <Button size="lg" className="bg-maroon-600 hover:bg-maroon-700 text-white">
                   Hubungi Kami
                 </Button>
               </Link>

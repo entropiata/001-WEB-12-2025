@@ -95,7 +95,7 @@ export function Inovasi() {
                 Hubungi kami untuk berbagi ide inovasi Anda.
               </p>
               <Link to="/hubungi-kami">
-                <Button size="lg" className="bg-maroon-600 hover:bg-maroon-700">
+                <Button size="lg" className="bg-maroon-600 hover:bg-maroon-700 text-white">
                   Hubungi Kami
                 </Button>
               </Link>
