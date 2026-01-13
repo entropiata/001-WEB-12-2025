@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '../ui/card';
-import { Award, Users, Target, Sparkles, Lightbulb, Heart, Shield, Home as HomeIcon } from 'lucide-react';
+import { Award, Users, Target, Sparkles, Lightbulb, Heart, Shield, Home as HomeIcon, X } from 'lucide-react';
 import { ImageWithFallback } from '../common/ImageWithFallback';
 import { fadeInUp, cardScrollAnimation, hoverLift } from '../../utils/animations';
 
@@ -67,11 +67,30 @@ export function Profil() {
     ]
   };
 
-  const penghargaan = [
-    { tahun: '2024', nama: 'Puskesmas Berprestasi Tingkat Kabupaten' },
-    { tahun: '2023', nama: 'Juara 1 Lomba Inovasi Pelayanan Kesehatan' },
-    { tahun: '2023', nama: 'Akreditasi Puskesmas - Madya' },
-    { tahun: '2022', nama: 'Puskesmas Percontohan Program Stunting' },
+  const [selectedCertificate, setSelectedCertificate] = useState<{
+    title: string;
+    imageUrl: string;
+  } | null>(null);
+
+  const akreditasi = [
+    {
+      jenisDokumen: 'Sertifikat Akreditasi',
+      status: 'Dasar',
+      masaBerlaku: '2016–2019',
+      imageUrl: '/assets/certificates/akreditasi-dasar-2016.jpg',
+    },
+    {
+      jenisDokumen: 'Sertifikat Akreditasi',
+      status: 'Utama',
+      masaBerlaku: '2019–2022',
+      imageUrl: '/assets/certificates/akreditasi-utama-2019.png',
+    },
+    {
+      jenisDokumen: 'Sertifikat Akreditasi',
+      status: 'Paripurna',
+      masaBerlaku: '2023–2028',
+      imageUrl: '/assets/certificates/akreditasi-paripurna-2023.png',
+    },
   ];
 
   const mottoList = [
@@ -461,17 +480,17 @@ export function Profil() {
         </div>
       </section>
 
-      {/* Penghargaan */}
+      {/* Akreditasi */}
       <section id="penghargaan" className="py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card style={{ borderColor: '#A7F3D0' }}>
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-8">
                 <Award className="w-8 h-8 text-emerald-600" />
-                <h2 className="text-3xl text-emerald-700">Penghargaan</h2>
+                <h2 className="text-3xl text-emerald-700">Akreditasi Puskesmas</h2>
               </div>
-              <div className="space-y-4">
-                {penghargaan.map((item, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {akreditasi.map((item, index) => (
                   <motion.div
                     key={index}
                     {...cardScrollAnimation}
@@ -479,15 +498,26 @@ export function Profil() {
                   >
                     <motion.div
                       {...hoverLift}
-                      className="flex items-start gap-4 p-4 border rounded-lg hover:shadow-md transition-shadow"
+                      onClick={() => setSelectedCertificate({
+                        title: `${item.jenisDokumen} - ${item.status}`,
+                        imageUrl: item.imageUrl
+                      })}
+                      className="cursor-pointer p-6 border-2 rounded-xl hover:shadow-xl transition-all bg-gradient-to-br from-white to-emerald-50/30 h-full"
                       style={{ borderColor: '#A7F3D0' }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Award className="w-8 h-8 text-emerald-600" />
-                      </div>
-                      <div>
-                        <p className="text-emerald-600 mb-1">{item.tahun}</p>
-                        <h4 className="text-gray-900">{item.nama}</h4>
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                          <Award className="w-10 h-10 text-white" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-sm text-gray-600 font-medium">{item.jenisDokumen}</p>
+                          <h3 className="text-2xl font-bold text-emerald-700">{item.status}</h3>
+                          <p className="text-gray-600">Masa Berlaku:</p>
+                          <p className="text-lg font-semibold text-emerald-600">{item.masaBerlaku}</p>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-4 italic">Klik untuk melihat sertifikat</p>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -496,7 +526,64 @@ export function Profil() {
             </CardContent>
           </Card>
         </div>
-      </section >
+      </section>
+
+      {/* Certificate Modal */}
+      {selectedCertificate && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedCertificate(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ type: "spring", duration: 0.5 }}
+            className="relative bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white px-6 py-4 flex items-center justify-between">
+              <h3 className="text-xl font-bold">{selectedCertificate.title}</h3>
+              <button
+                onClick={() => setSelectedCertificate(null)}
+                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 overflow-auto max-h-[calc(90vh-80px)]">
+              <div className="flex justify-center">
+                <img
+                  src={selectedCertificate.imageUrl}
+                  alt={selectedCertificate.title}
+                  className="max-w-full h-auto rounded-lg shadow-lg"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://via.placeholder.com/800x600?text=Certificate+Not+Available';
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="bg-gray-50 px-6 py-4 flex justify-end border-t">
+              <button
+                onClick={() => setSelectedCertificate(null)}
+                className="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors font-medium"
+              >
+                Tutup
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </div >
   );
 }
