@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from 'lucide-react';
 
 export function Footer() {
     return (
@@ -57,16 +57,16 @@ export function Footer() {
                             <li className="flex items-start gap-2">
                                 <MapPin className="w-4 h-4 text-maroon-400 mt-1 flex-shrink-0" />
                                 <span className="text-sm">
-                                    Jl. Raya Pasongsongan, Kec. Pasongsongan, Kab. Sumenep
+                                    Jl. Abubakar Siddiq, Benteng Utara, Panaongan, Kec. Pasongsongan, Kabupaten Sumenep, Jawa Timur 69457
                                 </span>
                             </li>
                             <li className="flex items-center gap-2">
                                 <Phone className="w-4 h-4 text-maroon-400 flex-shrink-0" />
-                                <span className="text-sm">(0328) 123456</span>
+                                <span className="text-sm">085852236642</span>
                             </li>
                             <li className="flex items-center gap-2">
                                 <Mail className="w-4 h-4 text-maroon-400 flex-shrink-0" />
-                                <span className="text-sm">info@puskesmaspasongsongan.id</span>
+                                <span className="text-sm">pkm.pasongsongan@gmail.com</span>
                             </li>
                         </ul>
                     </div>
@@ -101,25 +101,31 @@ export function Footer() {
                         </p>
                         <div className="flex gap-4">
                             <a
-                                href="#"
+                                href="https://facebook.com/puskesmaspasongsongan"
                                 className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maroon-600 transition-colors"
                                 aria-label="Facebook"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 <Facebook className="w-4 h-4" />
                             </a>
                             <a
-                                href="#"
+                                href="https://instagram.com/puskesmaspasongsongan"
                                 className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maroon-600 transition-colors"
                                 aria-label="Instagram"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 <Instagram className="w-4 h-4" />
                             </a>
                             <a
-                                href="#"
+                                href="https://api.whatsapp.com/send/?phone=6285852236642&text=Halo+Puskesmas%2C%0ASaya+ingin+menanyakan+informasi+terkait+layanan+kesehatan.%0AMohon+informasinya%2C+terima+kasih.&type=phone_number&app_absent=0"
                                 className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maroon-600 transition-colors"
-                                aria-label="Twitter"
+                                aria-label="WhatsApp"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                <Twitter className="w-4 h-4" />
+                                <Phone className="w-4 h-4" />
                             </a>
                         </div>
                     </div>
