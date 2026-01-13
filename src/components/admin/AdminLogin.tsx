@@ -58,14 +58,14 @@ export function AdminLogin() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-50 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-maroon-50 via-white to-maroon-50 flex items-center justify-center p-4">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="w-full max-w-md"
             >
-                <Card className="border-emerald-200 shadow-xl">
+                <Card className="border-maroon-200 shadow-xl">
                     <CardContent className="p-8">
                         {/* Header */}
                         <div className="text-center mb-8">
@@ -73,7 +73,7 @@ export function AdminLogin() {
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 transition={{ delay: 0.2, type: 'spring' }}
-                                className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4"
+                                className="w-16 h-16 bg-maroon-600 rounded-full flex items-center justify-center mx-auto mb-4"
                             >
                                 <Lock className="w-8 h-8 text-white" />
                             </motion.div>
@@ -119,7 +119,7 @@ export function AdminLogin() {
                                         type="text"
                                         value={username}
                                         onChange={(e) => setUsername(e.target.value)}
-                                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all"
                                         placeholder="Enter username"
                                         required
                                         disabled={loading}
@@ -139,7 +139,7 @@ export function AdminLogin() {
                                         type="password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all"
                                         placeholder="Enter password"
                                         required
                                         disabled={loading}
@@ -150,7 +150,7 @@ export function AdminLogin() {
                             {/* Submit Button */}
                             <Button
                                 type="submit"
-                                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 text-base"
+                                className="w-full bg-maroon-600 hover:bg-maroon-700 text-white py-3 text-base"
                                 disabled={loading}
                             >
                                 {loading ? (

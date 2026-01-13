@@ -234,7 +234,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         type="text"
                                         value={title}
                                         onChange={handleTitleChange}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all"
                                         placeholder="Enter article title"
                                         required
                                         disabled={loading}
@@ -251,7 +251,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         type="text"
                                         value={author}
                                         onChange={(e) => setAuthor(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all"
                                         placeholder="Tim Puskesmas Pasongsongan"
                                         disabled={loading}
                                     />
@@ -266,7 +266,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         id="category"
                                         value={category}
                                         onChange={(e) => setCategory(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all"
                                         disabled={loading}
                                     >
                                         <option value="">Select category</option>
@@ -289,7 +289,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         type="text"
                                         value={slug}
                                         onChange={(e) => setSlug(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all font-mono text-sm"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all font-mono text-sm"
                                         placeholder="article-url-slug"
                                         disabled={loading}
                                     />
@@ -308,7 +308,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         value={excerpt}
                                         onChange={(e) => setExcerpt(e.target.value)}
                                         rows={3}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all resize-none"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all resize-none"
                                         placeholder="Short summary for article listing..."
                                         disabled={loading}
                                     />
@@ -327,7 +327,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
                                         rows={16}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all resize-none font-mono text-sm"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all resize-none font-mono text-sm"
                                         placeholder="Write your article content using Markdown...&#10;&#10;## Section Title&#10;&#10;This is a paragraph with **bold** and *italic* text.&#10;&#10;- List item 1&#10;- List item 2"
                                         required
                                         disabled={loading}
@@ -349,7 +349,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                                 <code className="bg-gray-100 px-1 rounded">![image](url)</code>
                                             </p>
                                             <p className="text-xs mt-1">
-                                                See <span className="text-emerald-600 font-medium">MARKDOWN_GUIDE.md</span> for full documentation
+                                                See <span className="text-maroon-600 font-medium">MARKDOWN_GUIDE.md</span> for full documentation
                                             </p>
                                         </div>
                                         <p className="text-sm text-gray-500 whitespace-nowrap">
@@ -374,7 +374,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                                 setPreviewUrl(image);
                                             }}
                                             className={`flex-1 px-4 py-2 rounded-lg font-medium transition-all ${imageMethod === 'url'
-                                                    ? 'bg-emerald-600 text-white shadow-md'
+                                                    ? 'bg-maroon-600 text-white shadow-md'
                                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                                 }`}
                                             disabled={loading}
@@ -389,7 +389,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                                 setImage('');
                                             }}
                                             className={`flex-1 px-4 py-2 rounded-lg font-medium transition-all ${imageMethod === 'upload'
-                                                    ? 'bg-emerald-600 text-white shadow-md'
+                                                    ? 'bg-maroon-600 text-white shadow-md'
                                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                                 }`}
                                             disabled={loading}
@@ -412,7 +412,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                                         setImage(e.target.value);
                                                         setPreviewUrl(e.target.value);
                                                     }}
-                                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all"
                                                     placeholder="https://example.com/image.jpg"
                                                     disabled={loading}
                                                 />
@@ -425,7 +425,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         <div>
                                             <label
                                                 htmlFor="file-upload"
-                                                className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-emerald-500 hover:bg-emerald-50 transition-all"
+                                                className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-maroon-500 hover:bg-maroon-50 transition-all"
                                             >
                                                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                                     <Upload className="w-8 h-8 text-gray-400 mb-2" />
@@ -446,7 +446,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                                 />
                                             </label>
                                             {uploadProgress && (
-                                                <div className="mt-2 flex items-center gap-2 text-sm text-emerald-600">
+                                                <div className="mt-2 flex items-center gap-2 text-sm text-maroon-600">
                                                     <Loader2 className="w-4 h-4 animate-spin" />
                                                     Uploading image...
                                                 </div>
@@ -479,7 +479,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                         id="status"
                                         value={status}
                                         onChange={(e) => setStatus(e.target.value as 'draft' | 'published')}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none transition-all"
                                         disabled={loading}
                                     >
                                         <option value="draft">Draft</option>
@@ -505,7 +505,7 @@ export function ArticleForm({ article, onClose }: ArticleFormProps) {
                                     </Button>
                                     <Button
                                         type="submit"
-                                        className="flex-1 bg-emerald-600 hover:bg-emerald-700"
+                                        className="flex-1 bg-maroon-600 hover:bg-maroon-700"
                                         disabled={loading}
                                     >
                                         {loading ? (

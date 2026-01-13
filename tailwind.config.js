@@ -62,6 +62,19 @@ export default {
                     'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
                     border: 'hsl(var(--sidebar-border))',
                     ring: 'hsl(var(--sidebar-ring))'
+                },
+                maroon: {
+                    50: '#fdf2f2',
+                    100: '#fce8e8',
+                    200: '#f9d5d5',
+                    300: '#f4a8a8',
+                    400: '#e87171',
+                    500: '#b33939',
+                    600: '#800000',
+                    700: '#660000',
+                    800: '#4d0000',
+                    900: '#330000',
+                    950: '#1a0000',
                 }
             }
         }

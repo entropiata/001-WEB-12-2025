@@ -22,7 +22,7 @@ export function Inovasi() {
       slug: 'gerpas-lima',
       title: 'GERPAS LIMA',
       shortDesc: 'Gerakan Pemberantasan Sarang Nyamuk untuk Pencegahan Penyakit',
-      color: 'from-emerald-500 to-green-600',
+      color: 'from-maroon-500 to-green-600',
     },
     {
       slug: 'delima',
@@ -35,10 +35,10 @@ export function Inovasi() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-emerald-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl mb-4">Inovasi Puskesmas Pasongsongan</h1>
-          <p className="text-xl text-emerald-50">
+          <p className="text-xl text-maroon-50">
             Berbagai inovasi untuk meningkatkan kualitas pelayanan kesehatan masyarakat
           </p>
         </div>
@@ -71,7 +71,7 @@ export function Inovasi() {
                   <Link to={`/inovasi/${inovasi.slug}`}>
                     <Button
                       variant="ghost"
-                      className="text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 p-0 h-auto"
+                      className="text-maroon-600 hover:text-maroon-700 hover:bg-maroon-50 p-0 h-auto"
                     >
                       Lihat Detail
                       <ArrowRight className="ml-2 w-4 h-4" />
@@ -85,17 +85,17 @@ export function Inovasi() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-emerald-50">
+      <section className="py-16 bg-maroon-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="overflow-hidden" style={{ borderColor: '#A7F3D0' }}>
+          <Card className="overflow-hidden" style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8 md:p-12 text-center">
-              <h2 className="text-3xl text-emerald-700 mb-4">Punya Ide Inovasi?</h2>
+              <h2 className="text-3xl text-maroon-700 mb-4">Punya Ide Inovasi?</h2>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                 Kami terbuka untuk saran dan masukan dari masyarakat untuk terus meningkatkan kualitas pelayanan kesehatan.
                 Hubungi kami untuk berbagi ide inovasi Anda.
               </p>
               <Link to="/hubungi-kami">
-                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                <Button size="lg" className="bg-maroon-600 hover:bg-maroon-700">
                   Hubungi Kami
                 </Button>
               </Link>

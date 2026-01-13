@@ -69,7 +69,7 @@ export function ArtikelDetail() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 text-emerald-600 animate-spin mx-auto mb-4" />
+          <Loader2 className="w-12 h-12 text-maroon-600 animate-spin mx-auto mb-4" />
           <p className="text-gray-600">Loading article...</p>
         </div>
       </div>
@@ -84,7 +84,7 @@ export function ArtikelDetail() {
             {error || 'Article not found'}
           </h2>
           <Link to="/artikel">
-            <Button className="bg-emerald-600 hover:bg-emerald-700">
+            <Button className="bg-maroon-600 hover:bg-maroon-700">
               <ArrowLeft className="mr-2 w-4 h-4" />
               Back to Articles
             </Button>
@@ -97,7 +97,7 @@ export function ArtikelDetail() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-emerald-700 text-white py-12">
+      <section className="bg-maroon-700 text-white py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/artikel">
             <Button
@@ -115,7 +115,7 @@ export function ArtikelDetail() {
             </span>
           </div>
           <h1 className="text-4xl mb-4">{artikel.title}</h1>
-          <div className="flex items-center gap-4 text-emerald-50">
+          <div className="flex items-center gap-4 text-maroon-50">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               <span>{formatDate(artikel.created_at)}</span>
@@ -141,7 +141,7 @@ export function ArtikelDetail() {
           )}
 
           {/* Share Buttons */}
-          <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
+          <Card className="mb-8" style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-gray-600">
@@ -182,15 +182,15 @@ export function ArtikelDetail() {
           {/* Article Content with Markdown */}
           <Card>
             <CardContent className="p-8">
-              <div className="prose prose-emerald prose-lg max-w-none markdown-content">
+              <div className="prose prose-lg max-w-none markdown-content">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   rehypePlugins={[rehypeRaw, rehypeSanitize]}
                   components={{
                     // Custom styling for headings
-                    h1: ({ node, ...props }) => <h1 className="text-3xl font-bold text-emerald-700 mt-8 mb-4" {...props} />,
-                    h2: ({ node, ...props }) => <h2 className="text-2xl font-bold text-emerald-600 mt-6 mb-3" {...props} />,
-                    h3: ({ node, ...props }) => <h3 className="text-xl font-semibold text-emerald-600 mt-5 mb-2" {...props} />,
+                    h1: ({ node, ...props }) => <h1 className="text-3xl font-bold text-maroon-700 mt-8 mb-4" {...props} />,
+                    h2: ({ node, ...props }) => <h2 className="text-2xl font-bold text-maroon-600 mt-6 mb-3" {...props} />,
+                    h3: ({ node, ...props }) => <h3 className="text-xl font-semibold text-maroon-600 mt-5 mb-2" {...props} />,
                     // Custom styling for paragraphs
                     p: ({ node, ...props }) => <p className="text-gray-700 leading-relaxed mb-4" {...props} />,
                     // Custom styling for lists
@@ -203,7 +203,7 @@ export function ArtikelDetail() {
                     // Custom styling for links
                     a: ({ node, ...props }) => (
                       <a
-                        className="text-emerald-600 hover:text-emerald-700 underline"
+                        className="text-maroon-600 hover:text-maroon-700 underline"
                         target="_blank"
                         rel="noopener noreferrer"
                         {...props}
@@ -220,14 +220,14 @@ export function ArtikelDetail() {
                     // Custom styling for blockquotes
                     blockquote: ({ node, ...props }) => (
                       <blockquote
-                        className="border-l-4 border-emerald-500 pl-4 italic text-gray-600 my-4"
+                        className="border-l-4 border-maroon-500 pl-4 italic text-gray-600 my-4"
                         {...props}
                       />
                     ),
                     // Custom styling for code blocks
                     code: ({ node, inline, ...props }: any) =>
                       inline ? (
-                        <code className="bg-gray-100 text-emerald-700 px-2 py-1 rounded text-sm" {...props} />
+                        <code className="bg-gray-100 text-maroon-700 px-2 py-1 rounded text-sm" {...props} />
                       ) : (
                         <code className="block bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm my-4" {...props} />
                       ),
@@ -245,7 +245,7 @@ export function ArtikelDetail() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+                className="border-maroon-600 text-maroon-600 hover:bg-maroon-50"
               >
                 <ArrowLeft className="mr-2 w-4 h-4" />
                 View More Articles

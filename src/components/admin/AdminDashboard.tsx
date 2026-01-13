@@ -148,7 +148,7 @@ export function AdminDashboard() {
                                 placeholder="Search articles..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none"
                             />
                         </div>
 
@@ -156,7 +156,7 @@ export function AdminDashboard() {
                         <select
                             value={filterStatus}
                             onChange={(e) => setFilterStatus(e.target.value as any)}
-                            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+                            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-maroon-500 outline-none"
                         >
                             <option value="all">All Status</option>
                             <option value="published">Published</option>
@@ -166,7 +166,7 @@ export function AdminDashboard() {
 
                     <Button
                         onClick={() => setShowForm(true)}
-                        className="bg-emerald-600 hover:bg-emerald-700 w-full sm:w-auto"
+                        className="bg-maroon-600 hover:bg-maroon-700 w-full sm:w-auto"
                     >
                         <Plus className="w-4 h-4 mr-2" />
                         New Article
@@ -182,7 +182,7 @@ export function AdminDashboard() {
                                     <p className="text-sm text-gray-600">Total Articles</p>
                                     <p className="text-3xl font-bold text-gray-900 mt-1">{articles.length}</p>
                                 </div>
-                                <FileText className="w-12 h-12 text-emerald-600 opacity-20" />
+                                <FileText className="w-12 h-12 text-maroon-600 opacity-20" />
                             </div>
                         </CardContent>
                     </Card>
@@ -219,7 +219,7 @@ export function AdminDashboard() {
                 {/* Articles List */}
                 {loading ? (
                     <div className="flex items-center justify-center py-12">
-                        <Loader2 className="w-8 h-8 text-emerald-600 animate-spin" />
+                        <Loader2 className="w-8 h-8 text-maroon-600 animate-spin" />
                     </div>
                 ) : filteredArticles.length === 0 ? (
                     <Card>
@@ -232,7 +232,7 @@ export function AdminDashboard() {
                                     : 'Get started by creating your first article'}
                             </p>
                             {!searchTerm && filterStatus === 'all' && (
-                                <Button onClick={() => setShowForm(true)} className="bg-emerald-600 hover:bg-emerald-700">
+                                <Button onClick={() => setShowForm(true)} className="bg-maroon-600 hover:bg-maroon-700">
                                     <Plus className="w-4 h-4 mr-2" />
                                     Create Article
                                 </Button>
@@ -295,7 +295,7 @@ export function AdminDashboard() {
                                                             onClick={() => handleEdit(article)}
                                                             variant="outline"
                                                             size="sm"
-                                                            className="border-emerald-300 text-emerald-600 hover:bg-emerald-50"
+                                                            className="border-maroon-300 text-maroon-600 hover:bg-maroon-50"
                                                         >
                                                             <Edit className="w-4 h-4 mr-1" />
                                                             Edit

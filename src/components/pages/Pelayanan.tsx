@@ -143,7 +143,7 @@ export function Pelayanan() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-emerald-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -157,7 +157,7 @@ export function Pelayanan() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-emerald-50"
+            className="text-xl text-maroon-50"
           >
             Berbagai layanan kesehatan terpadu untuk keluarga
             Indonesia
@@ -169,7 +169,7 @@ export function Pelayanan() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-3xl text-emerald-700 mb-3">
+            <h2 className="text-3xl text-maroon-700 mb-3">
               Pelayanan Berbasis Klaster
             </h2>
             <p className="text-gray-600">
@@ -191,33 +191,33 @@ export function Pelayanan() {
                       <Card
                         id={cluster.id}
                         className="hover:shadow-lg transition-all scroll-mt-20 h-full cursor-pointer"
-                        style={{ borderColor: '#A7F3D0' }}
+                        style={{ borderColor: '#f9d5d5' }}
                       >
                         <CardContent className="p-6">
                           <div className="flex items-start gap-4 mb-4">
                             <motion.div
-                              className="w-14 h-14 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                              className="w-14 h-14 bg-maroon-100 rounded-lg flex items-center justify-center flex-shrink-0"
                               whileHover={{ scale: 1.1, rotate: 5 }}
                               transition={{ duration: 0.3 }}
                             >
-                              <Icon className="w-7 h-7 text-emerald-600" />
+                              <Icon className="w-7 h-7 text-maroon-600" />
                             </motion.div>
                             <div className="flex-1">
                               <div className="flex items-center justify-between mb-2">
                                 <h3 className="text-lg font-bold text-gray-900">
                                   {cluster.name}
                                 </h3>
-                                <ArrowRight className="w-5 h-5 text-emerald-600" />
+                                <ArrowRight className="w-5 h-5 text-maroon-600" />
                               </div>
                               <p className="text-gray-600 text-sm">
                                 {cluster.description}
                               </p>
                             </div>
                           </div>
-                          <div className="pt-4 border-t border-emerald-100">
+                          <div className="pt-4 border-t border-maroon-100">
                             <div className="flex items-center justify-between text-sm">
                               <span className="text-gray-500">{cluster.services.length} Jenis Pelayanan</span>
-                              <span className="text-emerald-600 font-medium">Lihat Detail →</span>
+                              <span className="text-maroon-600 font-medium">Lihat Detail →</span>
                             </div>
                           </div>
                         </CardContent>
@@ -232,11 +232,11 @@ export function Pelayanan() {
       </section>
 
       {/* Informasi Tambahan */}
-      <section className="py-16 bg-emerald-50">
+      <section className="py-16 bg-maroon-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card style={{ borderColor: '#A7F3D0' }}>
+          <Card style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
-              <h3 className="text-2xl text-emerald-700 mb-6">
+              <h3 className="text-2xl text-maroon-700 mb-6">
                 Informasi Penting
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -246,7 +246,7 @@ export function Pelayanan() {
                   </h4>
                   <ul className="space-y-2 text-gray-600 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">
+                      <span className="text-maroon-600 mt-1">
                         •
                       </span>
                       <span>
@@ -254,7 +254,7 @@ export function Pelayanan() {
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">
+                      <span className="text-maroon-600 mt-1">
                         •
                       </span>
                       <span>
@@ -262,13 +262,13 @@ export function Pelayanan() {
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">
+                      <span className="text-maroon-600 mt-1">
                         •
                       </span>
                       <span>Surat rujukan (jika ada)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">
+                      <span className="text-maroon-600 mt-1">
                         •
                       </span>
                       <span>
@@ -284,25 +284,25 @@ export function Pelayanan() {
                   </h4>
                   <ul className="space-y-2 text-gray-600 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">
+                      <span className="text-maroon-600 mt-1">
                         •
                       </span>
                       <span>Ruang tunggu yang nyaman</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">
+                      <span className="text-maroon-600 mt-1">
                         •
                       </span>
                       <span>Apotek lengkap</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">
+                      <span className="text-maroon-600 mt-1">
                         •
                       </span>
                       <span>Parkir luas dan aman</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">
+                      <span className="text-maroon-600 mt-1">
                         •
                       </span>
                       <span>Akses ramah disabilitas</span>

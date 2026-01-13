@@ -54,11 +54,11 @@ export function Navbar() {
                     <div className="flex items-center">
                         <Link to="/" className="flex items-center">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center">
+                                <div className="w-10 h-10 bg-maroon-600 rounded-lg flex items-center justify-center">
                                     <span className="text-white font-bold text-xl">P</span>
                                 </div>
                                 <div className="hidden sm:block">
-                                    <h1 className="text-lg font-bold text-emerald-700">Puskesmas</h1>
+                                    <h1 className="text-lg font-bold text-maroon-700">Puskesmas</h1>
                                     <p className="text-xs text-gray-600">Pasongsongan</p>
                                 </div>
                             </div>
@@ -77,8 +77,8 @@ export function Navbar() {
                                 <Link
                                     to={item.href}
                                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${isActive(item.href)
-                                        ? 'bg-emerald-100 text-emerald-700'
-                                        : 'text-gray-700 hover:bg-emerald-50 hover:text-emerald-600'
+                                        ? 'bg-maroon-100 text-maroon-700'
+                                        : 'text-gray-700 hover:bg-maroon-50 hover:text-maroon-600'
                                         }`}
                                 >
                                     {item.name}
@@ -107,7 +107,7 @@ export function Navbar() {
                                                     >
                                                         <Link
                                                             to={subItem.href}
-                                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
+                                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-maroon-50 hover:text-maroon-600 transition-colors"
                                                         >
                                                             {subItem.name}
                                                         </Link>
@@ -149,8 +149,8 @@ export function Navbar() {
                                     to={item.href}
                                     onClick={() => !item.submenu && setIsOpen(false)}
                                     className={`flex items-center justify-between px-3 py-2 rounded-md text-base font-medium ${isActive(item.href)
-                                        ? 'bg-emerald-100 text-emerald-700'
-                                        : 'text-gray-700 hover:bg-emerald-50 hover:text-emerald-600'
+                                        ? 'bg-maroon-100 text-maroon-700'
+                                        : 'text-gray-700 hover:bg-maroon-50 hover:text-maroon-600'
                                         }`}
                                 >
                                     {item.name}
@@ -174,7 +174,7 @@ export function Navbar() {
                                                 key={subItem.name}
                                                 to={subItem.href}
                                                 onClick={() => setIsOpen(false)}
-                                                className="block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600"
+                                                className="block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-maroon-50 hover:text-maroon-600"
                                             >
                                                 {subItem.name}
                                             </Link>

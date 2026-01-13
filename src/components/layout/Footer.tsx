@@ -10,7 +10,7 @@ export function Footer() {
                     {/* About Section */}
                     <div>
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center">
+                            <div className="w-10 h-10 bg-maroon-600 rounded-lg flex items-center justify-center">
                                 <span className="text-white font-bold text-xl">P</span>
                             </div>
                             <div>
@@ -28,22 +28,22 @@ export function Footer() {
                         <h3 className="text-white font-semibold mb-4">Tautan Cepat</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link to="/profil" className="text-sm hover:text-emerald-400 transition-colors">
+                                <Link to="/profil" className="text-sm hover:text-maroon-400 transition-colors">
                                     Profil Puskesmas
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/pelayanan" className="text-sm hover:text-emerald-400 transition-colors">
+                                <Link to="/pelayanan" className="text-sm hover:text-maroon-400 transition-colors">
                                     Layanan Kami
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/artikel" className="text-sm hover:text-emerald-400 transition-colors">
+                                <Link to="/artikel" className="text-sm hover:text-maroon-400 transition-colors">
                                     Artikel & Berita
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/inovasi" className="text-sm hover:text-emerald-400 transition-colors">
+                                <Link to="/inovasi" className="text-sm hover:text-maroon-400 transition-colors">
                                     Inovasi
                                 </Link>
                             </li>
@@ -55,17 +55,17 @@ export function Footer() {
                         <h3 className="text-white font-semibold mb-4">Kontak</h3>
                         <ul className="space-y-3">
                             <li className="flex items-start gap-2">
-                                <MapPin className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
+                                <MapPin className="w-4 h-4 text-maroon-400 mt-1 flex-shrink-0" />
                                 <span className="text-sm">
                                     Jl. Raya Pasongsongan, Kec. Pasongsongan, Kab. Sumenep
                                 </span>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                                <Phone className="w-4 h-4 text-maroon-400 flex-shrink-0" />
                                 <span className="text-sm">(0328) 123456</span>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Mail className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                                <Mail className="w-4 h-4 text-maroon-400 flex-shrink-0" />
                                 <span className="text-sm">info@puskesmaspasongsongan.id</span>
                             </li>
                         </ul>
@@ -76,14 +76,14 @@ export function Footer() {
                         <h3 className="text-white font-semibold mb-4">Jam Pelayanan</h3>
                         <ul className="space-y-2">
                             <li className="flex items-start gap-2">
-                                <Clock className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
+                                <Clock className="w-4 h-4 text-maroon-400 mt-1 flex-shrink-0" />
                                 <div className="text-sm">
                                     <p className="font-medium text-white">Senin - Jumat</p>
                                     <p className="text-gray-400">08.00 - 14.00 WIB</p>
                                 </div>
                             </li>
                             <li className="flex items-start gap-2">
-                                <Clock className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
+                                <Clock className="w-4 h-4 text-maroon-400 mt-1 flex-shrink-0" />
                                 <div className="text-sm">
                                     <p className="font-medium text-white">Sabtu</p>
                                     <p className="text-gray-400">08.00 - 12.00 WIB</p>
@@ -102,21 +102,21 @@ export function Footer() {
                         <div className="flex gap-4">
                             <a
                                 href="#"
-                                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors"
+                                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maroon-600 transition-colors"
                                 aria-label="Facebook"
                             >
                                 <Facebook className="w-4 h-4" />
                             </a>
                             <a
                                 href="#"
-                                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors"
+                                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maroon-600 transition-colors"
                                 aria-label="Instagram"
                             >
                                 <Instagram className="w-4 h-4" />
                             </a>
                             <a
                                 href="#"
-                                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors"
+                                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maroon-600 transition-colors"
                                 aria-label="Twitter"
                             >
                                 <Twitter className="w-4 h-4" />

@@ -196,7 +196,7 @@ export function InovasiDetail() {
         <div className="text-center">
           <h2 className="text-2xl text-gray-700 mb-4">Inovasi tidak ditemukan</h2>
           <Link to="/inovasi">
-            <Button className="bg-emerald-600 hover:bg-emerald-700">
+            <Button className="bg-maroon-600 hover:bg-maroon-700">
               <ArrowLeft className="mr-2 w-4 h-4" />
               Kembali ke Daftar Inovasi
             </Button>
@@ -209,7 +209,7 @@ export function InovasiDetail() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-emerald-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/inovasi">
             <Button
@@ -222,7 +222,7 @@ export function InovasiDetail() {
             </Button>
           </Link>
           <h1 className="text-4xl mb-2">{inovasi.title}</h1>
-          <p className="text-xl text-emerald-50">{inovasi.subtitle}</p>
+          <p className="text-xl text-maroon-50">{inovasi.subtitle}</p>
         </div>
       </section>
 
@@ -241,7 +241,7 @@ export function InovasiDetail() {
           {/* Description */}
           <Card className="mb-8">
             <CardContent className="p-8">
-              <h2 className="text-2xl text-emerald-700 mb-4">Deskripsi Singkat</h2>
+              <h2 className="text-2xl text-maroon-700 mb-4">Deskripsi Singkat</h2>
               <p className="text-gray-700 leading-relaxed">{inovasi.description}</p>
             </CardContent>
           </Card>
@@ -251,8 +251,8 @@ export function InovasiDetail() {
             <Card className="mb-8">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <FileText className="w-6 h-6 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Latar Belakang</h2>
+                  <FileText className="w-6 h-6 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Latar Belakang</h2>
                 </div>
                 <p className="text-gray-700 leading-relaxed">{inovasi.latarBelakang}</p>
               </CardContent>
@@ -263,13 +263,13 @@ export function InovasiDetail() {
           <Card className="mb-8">
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-6">
-                <Target className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl text-emerald-700">Tujuan Inovasi</h2>
+                <Target className="w-6 h-6 text-maroon-600" />
+                <h2 className="text-2xl text-maroon-700">Tujuan Inovasi</h2>
               </div>
               <ul className="space-y-3">
                 {inovasi.tujuan.map((item: string, index: number) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-maroon-100 text-maroon-700 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       {index + 1}
                     </span>
                     <span className="text-gray-700">{item}</span>
@@ -284,8 +284,8 @@ export function InovasiDetail() {
             <Card className="mb-8">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <MapPin className="w-6 h-6 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Sasaran</h2>
+                  <MapPin className="w-6 h-6 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Sasaran</h2>
                 </div>
                 <p className="text-gray-700 leading-relaxed">{inovasi.sasaran}</p>
               </CardContent>
@@ -297,13 +297,13 @@ export function InovasiDetail() {
             <Card className="mb-8">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Cog className="w-6 h-6 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Mekanisme / Cara Kerja</h2>
+                  <Cog className="w-6 h-6 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Mekanisme / Cara Kerja</h2>
                 </div>
                 <ul className="space-y-3">
                   {inovasi.mekanisme.map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="w-6 h-6 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-6 h-6 bg-maroon-100 text-maroon-700 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         {index + 1}
                       </span>
                       <span className="text-gray-700">{item}</span>
@@ -319,13 +319,13 @@ export function InovasiDetail() {
             <Card className="mb-8">
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Star className="w-6 h-6 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Keunggulan / Nilai Inovatif</h2>
+                  <Star className="w-6 h-6 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Keunggulan / Nilai Inovatif</h2>
                 </div>
                 <ul className="space-y-3">
                   {inovasi.keunggulan.map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="text-emerald-600 mt-1">★</span>
+                      <span className="text-maroon-600 mt-1">★</span>
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
@@ -338,13 +338,13 @@ export function InovasiDetail() {
           <Card>
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-6">
-                <TrendingUp className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl text-emerald-700">Manfaat bagi Masyarakat</h2>
+                <TrendingUp className="w-6 h-6 text-maroon-600" />
+                <h2 className="text-2xl text-maroon-700">Manfaat bagi Masyarakat</h2>
               </div>
               <ul className="space-y-3">
                 {inovasi.manfaat.map((item: string, index: number) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="text-emerald-600 mt-1">✓</span>
+                    <span className="text-maroon-600 mt-1">✓</span>
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
@@ -353,17 +353,17 @@ export function InovasiDetail() {
           </Card>
 
           {/* CTA */}
-          <div className="mt-12 p-8 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl border" style={{ borderColor: '#A7F3D0' }}>
+          <div className="mt-12 p-8 bg-gradient-to-br from-maroon-50 to-maroon-100 rounded-xl border" style={{ borderColor: '#f9d5d5' }}>
             <div className="text-center">
-              <Users className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-              <h3 className="text-2xl text-emerald-700 mb-3">
+              <Users className="w-12 h-12 text-maroon-600 mx-auto mb-4" />
+              <h3 className="text-2xl text-maroon-700 mb-3">
                 Tertarik Menggunakan Layanan Ini?
               </h3>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                 Hubungi kami untuk informasi lebih lanjut tentang inovasi ini dan bagaimana Anda dapat memanfaatkannya.
               </p>
               <Link to="/hubungi-kami">
-                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                <Button size="lg" className="bg-maroon-600 hover:bg-maroon-700">
                   Hubungi Kami
                 </Button>
               </Link>

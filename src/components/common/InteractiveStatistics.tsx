@@ -34,7 +34,7 @@ export function InteractiveStatistics() {
                         <div className="text-5xl md:text-6xl font-bold mb-2">
                             <AnimatedCounter value={35} suffix="+" duration={2.5} />
                         </div>
-                        <p className="text-emerald-100 text-sm uppercase tracking-wide">Tahun</p>
+                        <p className="text-maroon-100 text-sm uppercase tracking-wide">Tahun</p>
                     </div>
                     <p className="text-white font-medium">Pengalaman Melayani</p>
                 </motion.div>
@@ -55,7 +55,7 @@ export function InteractiveStatistics() {
                         <div className="text-5xl md:text-6xl font-bold mb-2">
                             <AnimatedCounter value={8} duration={2} />
                         </div>
-                        <p className="text-emerald-100 text-sm uppercase tracking-wide">Desa</p>
+                        <p className="text-maroon-100 text-sm uppercase tracking-wide">Desa</p>
                     </div>
                     <p className="text-white font-medium">Wilayah Kerja</p>
                 </motion.div>
@@ -76,7 +76,7 @@ export function InteractiveStatistics() {
                         <div className="text-5xl md:text-6xl font-bold mb-2">
                             <AnimatedCounter value={25000} suffix="+" duration={2.5} />
                         </div>
-                        <p className="text-emerald-100 text-sm uppercase tracking-wide">Jiwa</p>
+                        <p className="text-maroon-100 text-sm uppercase tracking-wide">Jiwa</p>
                     </div>
                     <p className="text-white font-medium">Populasi Terlayani</p>
                 </motion.div>
@@ -97,7 +97,7 @@ export function InteractiveStatistics() {
                         <div className="text-5xl md:text-6xl font-bold mb-2">
                             <AnimatedCounter value={100} suffix="+" duration={2} />
                         </div>
-                        <p className="text-emerald-100 text-sm uppercase tracking-wide">Pasien</p>
+                        <p className="text-maroon-100 text-sm uppercase tracking-wide">Pasien</p>
                     </div>
                     <p className="text-white font-medium">Kunjungan Harian</p>
                 </motion.div>
@@ -148,7 +148,7 @@ export function InteractiveStatistics() {
                         <div className="text-5xl md:text-6xl font-bold mb-2">
                             <AnimatedCounter value={7} duration={2} />
                         </div>
-                        <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
+                        <p className="text-maroon-100 text-sm uppercase tracking-wide">Orang</p>
                     </div>
                     <p className="text-white font-medium">Dokter</p>
                 </motion.div>
@@ -169,7 +169,7 @@ export function InteractiveStatistics() {
                         <div className="text-5xl md:text-6xl font-bold mb-2">
                             <AnimatedCounter value={35} duration={2} />
                         </div>
-                        <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
+                        <p className="text-maroon-100 text-sm uppercase tracking-wide">Orang</p>
                     </div>
                     <p className="text-white font-medium">Perawat</p>
                 </motion.div>
@@ -190,7 +190,7 @@ export function InteractiveStatistics() {
                         <div className="text-5xl md:text-6xl font-bold mb-2">
                             <AnimatedCounter value={39} duration={2} />
                         </div>
-                        <p className="text-emerald-100 text-sm uppercase tracking-wide">Orang</p>
+                        <p className="text-maroon-100 text-sm uppercase tracking-wide">Orang</p>
                     </div>
                     <p className="text-white font-medium">Bidan</p>
                 </motion.div>
@@ -211,7 +211,7 @@ export function InteractiveStatistics() {
                         <div className="text-5xl md:text-6xl font-bold mb-2">
                             <AnimatedCounter value={10} duration={2} />
                         </div>
-                        <p className="text-emerald-100 text-sm uppercase tracking-wide">Kamar</p>
+                        <p className="text-maroon-100 text-sm uppercase tracking-wide">Kamar</p>
                     </div>
                     <p className="text-white font-medium">Kamar Rawat Inap</p>
                 </motion.div>

@@ -209,16 +209,16 @@ export function PelayananDetail() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-emerald-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/pelayanan">
-            <Button variant="ghost" className="text-white hover:bg-emerald-600 mb-6">
+            <Button variant="ghost" className="text-white hover:bg-maroon-600 mb-6">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Kembali
             </Button>
           </Link>
           <h1 className="text-4xl mb-2">{cluster.title}</h1>
-          <p className="text-xl text-emerald-50">{cluster.subtitle}</p>
+          <p className="text-xl text-maroon-50">{cluster.subtitle}</p>
         </div>
       </section>
 
@@ -235,27 +235,27 @@ export function PelayananDetail() {
           </div>
 
           {/* Description */}
-          <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
+          <Card className="mb-8" style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
-              <h2 className="text-2xl text-emerald-700 mb-4">Tentang Klaster</h2>
+              <h2 className="text-2xl text-maroon-700 mb-4">Tentang Klaster</h2>
               <p className="text-gray-700 leading-relaxed">{cluster.description}</p>
             </CardContent>
           </Card>
 
           {/* Layanan Tersedia */}
-          <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
+          <Card className="mb-8" style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-6">
-                <CheckCircle className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl text-emerald-700">Jenis Pelayanan</h2>
+                <CheckCircle className="w-6 h-6 text-maroon-600" />
+                <h2 className="text-2xl text-maroon-700">Jenis Pelayanan</h2>
               </div>
               <div className="grid md:grid-cols-2 gap-3">
                 {cluster.layananTersedia.map((layanan: string, index: number) => (
                   <div
                     key={index}
-                    className="flex items-start gap-3 p-3 bg-emerald-50 rounded-lg"
+                    className="flex items-start gap-3 p-3 bg-maroon-50 rounded-lg"
                   >
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-maroon-600 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{layanan}</span>
                   </div>
                 ))}
@@ -265,19 +265,19 @@ export function PelayananDetail() {
 
           {/* Persyaratan */}
           {cluster.persyaratan && (
-            <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
+            <Card className="mb-8" style={{ borderColor: '#f9d5d5' }}>
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <ClipboardList className="w-6 h-6 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Persyaratan</h2>
+                  <ClipboardList className="w-6 h-6 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Persyaratan</h2>
                 </div>
                 <div className="space-y-3">
                   {cluster.persyaratan.map((item: string, index: number) => (
                     <div
                       key={index}
-                      className="flex items-start gap-3 p-3 bg-emerald-50 rounded-lg"
+                      className="flex items-start gap-3 p-3 bg-maroon-50 rounded-lg"
                     >
-                      <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-maroon-600 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{item}</span>
                     </div>
                   ))}
@@ -288,26 +288,26 @@ export function PelayananDetail() {
 
           {/* Biaya/Tarif */}
           {cluster.biaya && (
-            <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
+            <Card className="mb-8" style={{ borderColor: '#f9d5d5' }}>
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <DollarSign className="w-6 h-6 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Biaya/Tarif</h2>
+                  <DollarSign className="w-6 h-6 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Biaya/Tarif</h2>
                 </div>
                 <div className="space-y-3">
                   {cluster.biaya.map((item: any, index: number) => (
                     <div
                       key={index}
-                      className="flex items-start gap-3 p-4 bg-emerald-50 rounded-lg"
+                      className="flex items-start gap-3 p-4 bg-maroon-50 rounded-lg"
                     >
                       {typeof item === 'string' ? (
                         <>
-                          <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-maroon-600 flex-shrink-0 mt-0.5" />
                           <span className="text-gray-700">{item}</span>
                         </>
                       ) : (
                         <div className="flex-1">
-                          <div className="font-semibold text-emerald-700 mb-1">
+                          <div className="font-semibold text-maroon-700 mb-1">
                             {item.label}
                           </div>
                           <div className="text-gray-700">{item.value}</div>
@@ -322,27 +322,27 @@ export function PelayananDetail() {
 
           {/* Jumlah Pelaksana */}
           {cluster.jumlahPelaksana && (
-            <Card className="mb-8" style={{ borderColor: '#A7F3D0' }}>
+            <Card className="mb-8" style={{ borderColor: '#f9d5d5' }}>
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Users className="w-6 h-6 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Jumlah Pelaksana</h2>
+                  <Users className="w-6 h-6 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Jumlah Pelaksana</h2>
                 </div>
                 <div className="space-y-3">
                   {cluster.jumlahPelaksana.map((item: any, index: number) => (
                     <div
                       key={index}
-                      className="flex items-start gap-3 p-4 bg-emerald-50 rounded-lg"
+                      className="flex items-start gap-3 p-4 bg-maroon-50 rounded-lg"
                     >
                       {typeof item === 'string' ? (
                         <>
-                          <Users className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          <Users className="w-5 h-5 text-maroon-600 flex-shrink-0 mt-0.5" />
                           <span className="text-gray-700">{item}</span>
                         </>
                       ) : (
                         <div className="flex-1 flex justify-between items-center">
                           <span className="font-medium text-gray-900">{item.label}</span>
-                          <span className="text-emerald-700 font-semibold">{item.value}</span>
+                          <span className="text-maroon-700 font-semibold">{item.value}</span>
                         </div>
                       )}
                     </div>

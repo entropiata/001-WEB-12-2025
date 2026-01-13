@@ -104,10 +104,10 @@ export function Artikel() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-emerald-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl mb-4">Artikel & Berita</h1>
-          <p className="text-xl text-emerald-50">
+          <p className="text-xl text-maroon-50">
             Informasi kesehatan dan berita kegiatan Puskesmas Pasongsongan
           </p>
         </div>
@@ -117,7 +117,7 @@ export function Artikel() {
       <section className="py-8 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 mb-3">
-            <Tag className="w-5 h-5 text-emerald-600" />
+            <Tag className="w-5 h-5 text-maroon-600" />
             <span className="text-gray-700">Filter Kategori:</span>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -129,8 +129,8 @@ export function Artikel() {
                 onClick={() => handleCategoryChange(category)}
                 className={
                   selectedCategory === category
-                    ? 'bg-emerald-600 hover:bg-emerald-700'
-                    : 'border-emerald-600 text-emerald-600 hover:bg-emerald-50'
+                    ? 'bg-maroon-600 hover:bg-maroon-700'
+                    : 'border-maroon-600 text-maroon-600 hover:bg-maroon-50'
                 }
               >
                 {category}
@@ -148,14 +148,14 @@ export function Artikel() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {loading ? (
             <div className="flex items-center justify-center py-12">
-              <Loader2 className="w-8 h-8 text-emerald-600 animate-spin" />
+              <Loader2 className="w-8 h-8 text-maroon-600 animate-spin" />
             </div>
           ) : error ? (
             <div className="text-center py-12">
               <p className="text-red-600 mb-4">{error}</p>
               <Button
                 onClick={fetchArticles}
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-maroon-600 hover:bg-maroon-700"
               >
                 Coba Lagi
               </Button>
@@ -178,7 +178,7 @@ export function Artikel() {
                       </div>
                       <CardContent className="p-6">
                         <div className="mb-3">
-                          <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm">
+                          <span className="inline-block px-3 py-1 bg-maroon-100 text-maroon-700 rounded-full text-sm">
                             {artikel.category || 'Artikel'}
                           </span>
                         </div>
@@ -204,7 +204,7 @@ export function Artikel() {
                     size="sm"
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+                    className="border-maroon-600 text-maroon-600 hover:bg-maroon-50"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     Sebelumnya
@@ -219,8 +219,8 @@ export function Artikel() {
                         onClick={() => handlePageChange(page)}
                         className={
                           currentPage === page
-                            ? 'bg-emerald-600 hover:bg-emerald-700'
-                            : 'border-emerald-600 text-emerald-600 hover:bg-emerald-50'
+                            ? 'bg-maroon-600 hover:bg-maroon-700'
+                            : 'border-maroon-600 text-maroon-600 hover:bg-maroon-50'
                         }
                       >
                         {page}
@@ -233,7 +233,7 @@ export function Artikel() {
                     size="sm"
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+                    className="border-maroon-600 text-maroon-600 hover:bg-maroon-50"
                   >
                     Selanjutnya
                     <ChevronRight className="w-4 h-4" />

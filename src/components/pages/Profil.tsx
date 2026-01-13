@@ -124,7 +124,7 @@ export function Profil() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-emerald-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -138,7 +138,7 @@ export function Profil() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-emerald-50"
+            className="text-xl text-maroon-50"
           >
             Mengenal lebih dekat Puskesmas Pasongsongan
           </motion.p>
@@ -149,9 +149,9 @@ export function Profil() {
       <section id="profil" className="py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...cardScrollAnimation}>
-            <Card style={{ borderColor: '#A7F3D0' }}>
+            <Card style={{ borderColor: '#f9d5d5' }}>
               <CardContent className="p-8">
-                <h2 className="text-3xl text-emerald-700 mb-6">Profil Puskesmas</h2>
+                <h2 className="text-3xl text-maroon-700 mb-6">Profil Puskesmas</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <p className="text-gray-700 mb-4 text-justify leading-relaxed">
@@ -178,9 +178,9 @@ export function Profil() {
       {/* Sambutan Kepala Puskesmas */}
       <section id="sambutan" className="py-16 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card style={{ borderColor: '#A7F3D0' }}>
+          <Card style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
-              <h2 className="text-3xl text-emerald-700 mb-8">Sambutan Kepala Puskesmas</h2>
+              <h2 className="text-3xl text-maroon-700 mb-8">Sambutan Kepala Puskesmas</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="md:col-span-1">
                   <div className="rounded-lg overflow-hidden mb-4">
@@ -222,11 +222,11 @@ export function Profil() {
       <section id="visi-misi" className="py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6">
-            <Card style={{ borderColor: '#A7F3D0' }}>
+            <Card style={{ borderColor: '#f9d5d5' }}>
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Target className="w-8 h-8 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Visi</h2>
+                  <Target className="w-8 h-8 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Visi</h2>
                 </div>
                 <p className="text-gray-700 italic text-left text-2xl font-semibold">
                   Sumenep Unggul Mandiri dan Sejahtera
@@ -234,27 +234,27 @@ export function Profil() {
               </CardContent>
             </Card>
 
-            <Card style={{ borderColor: '#A7F3D0' }}>
+            <Card style={{ borderColor: '#f9d5d5' }}>
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Users className="w-8 h-8 text-emerald-600" />
-                  <h2 className="text-2xl text-emerald-700">Misi</h2>
+                  <Users className="w-8 h-8 text-maroon-600" />
+                  <h2 className="text-2xl text-maroon-700">Misi</h2>
                 </div>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1 font-semibold">1.</span>
+                    <span className="text-maroon-600 mt-1 font-semibold">1.</span>
                     <span>Menggerakkan pembangunan berwawasan Kesehatan</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1 font-semibold">2.</span>
+                    <span className="text-maroon-600 mt-1 font-semibold">2.</span>
                     <span>Meningkatkan derajat kesehatan Masyarakat melalui pemberdayaan</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1 font-semibold">3.</span>
+                    <span className="text-maroon-600 mt-1 font-semibold">3.</span>
                     <span>Melindungi Kesehatan Masyarakat melalui pelayanan Paripurna</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 mt-1 font-semibold">4.</span>
+                    <span className="text-maroon-600 mt-1 font-semibold">4.</span>
                     <span>Meningkatkan dan mendayagunakan sumber daya kesehatan</span>
                   </li>
                 </ul>
@@ -265,7 +265,7 @@ export function Profil() {
       </section>
 
       {/* Motto Section */}
-      <section id="motto" className="py-16 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 scroll-mt-20">
+      <section id="motto" className="py-16 bg-gradient-to-br from-maroon-50 via-white to-maroon-50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <motion.h2
@@ -273,7 +273,7 @@ export function Profil() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-3xl md:text-4xl text-emerald-700 mb-8"
+              className="text-3xl md:text-4xl text-maroon-700 mb-8"
             >
               Motto Pelayanan Kami
             </motion.h2>
@@ -290,13 +290,13 @@ export function Profil() {
               className="relative inline-block mb-6"
             >
               {/* Text */}
-              <h2 className="text-5xl md:text-6xl font-bold text-emerald-800 mb-2">
+              <h2 className="text-5xl md:text-6xl font-bold text-maroon-800 mb-2">
                 "Ber-Iman"
               </h2>
 
               {/* Animated Underline */}
               <motion.div
-                className="relative h-1.5 bg-gradient-to-r from-transparent via-emerald-600 to-transparent rounded-full"
+                className="relative h-1.5 bg-gradient-to-r from-transparent via-maroon-600 to-transparent rounded-full"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -308,7 +308,7 @@ export function Profil() {
               >
                 {/* Glowing dot that moves along the underline */}
                 <motion.div
-                  className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"
+                  className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-maroon-500 rounded-full shadow-lg shadow-maroon-500/50"
                   animate={{
                     left: ["0%", "100%", "0%"]
                   }}
@@ -331,23 +331,23 @@ export function Profil() {
             >
               <motion.span
                 whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
+                className="inline-block text-maroon-700 transition-colors cursor-default"
               >Ber</motion.span>sih, {" "}
               <motion.span
                 whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
+                className="inline-block text-maroon-700 transition-colors cursor-default"
               >I</motion.span>novatif, {" "}
               <motion.span
                 whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
+                className="inline-block text-maroon-700 transition-colors cursor-default"
               >M</motion.span>anusiawi, {" "}
               <motion.span
                 whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
+                className="inline-block text-maroon-700 transition-colors cursor-default"
               >A</motion.span>manah dan {" "}
               <motion.span
                 whileHover={{ scale: 1.1, color: "#059669" }}
-                className="inline-block text-emerald-700 transition-colors cursor-default"
+                className="inline-block text-maroon-700 transition-colors cursor-default"
               >N</motion.span>yaman
             </motion.p>
 
@@ -372,16 +372,16 @@ export function Profil() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <motion.div {...hoverLift}>
-                    <Card className="hover:shadow-xl transition-all h-full bg-white" style={{ borderColor: '#A7F3D0' }}>
+                    <Card className="hover:shadow-xl transition-all h-full bg-white" style={{ borderColor: '#f9d5d5' }}>
                       <CardContent className="p-6">
                         <motion.div
-                          className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-lg"
+                          className="w-16 h-16 bg-gradient-to-br from-maroon-500 to-maroon-600 rounded-xl flex items-center justify-center mb-4 shadow-lg"
                           whileHover={{ scale: 1.1, rotate: 5 }}
                           transition={{ duration: 0.3 }}
                         >
                           <Icon className="w-8 h-8 text-white" />
                         </motion.div>
-                        <h3 className="text-xl font-bold text-emerald-700 mb-3">{motto.title}</h3>
+                        <h3 className="text-xl font-bold text-maroon-700 mb-3">{motto.title}</h3>
                         <p className="text-gray-600 text-sm leading-relaxed">{motto.description}</p>
                       </CardContent>
                     </Card>
@@ -396,36 +396,36 @@ export function Profil() {
       {/* Struktur Organisasi */}
       <section id="struktur" className="py-16 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card style={{ borderColor: '#A7F3D0' }}>
+          <Card style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
-              <h2 className="text-3xl text-emerald-700 mb-12 text-center">Struktur Organisasi</h2>
+              <h2 className="text-3xl text-maroon-700 mb-12 text-center">Struktur Organisasi</h2>
 
               {/* Organizational Chart */}
               <div className="space-y-8">
 
                 {/* Kepala Puskesmas */}
                 <div className="flex justify-center">
-                  <div className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white px-12 py-6 rounded-2xl shadow-xl">
+                  <div className="bg-gradient-to-r from-maroon-700 to-maroon-600 text-white px-12 py-6 rounded-2xl shadow-xl">
                     <h3 className="text-xl font-bold text-center">{strukturOrganisasi.kepala}</h3>
                   </div>
                 </div>
 
                 {/* Divider */}
                 <div className="flex justify-center">
-                  <div className="w-px h-8 bg-gradient-to-b from-emerald-500 to-transparent"></div>
+                  <div className="w-px h-8 bg-gradient-to-b from-maroon-500 to-transparent"></div>
                 </div>
 
                 {/* All Clusters */}
                 <div className="space-y-6">
                   {strukturOrganisasi.clusters.map((cluster, clusterIndex) => (
-                    <div key={clusterIndex} className="bg-gradient-to-br from-white to-emerald-50/30 rounded-2xl border-2 border-emerald-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div key={clusterIndex} className="bg-gradient-to-br from-white to-maroon-50/30 rounded-2xl border-2 border-maroon-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                       {/* Cluster Header */}
-                      <div className="flex items-center gap-4 mb-6 pb-4 border-b-2 border-emerald-100">
-                        <div className="flex items-center justify-center w-12 h-12 bg-emerald-600 rounded-xl shadow-md flex-shrink-0">
+                      <div className="flex items-center gap-4 mb-6 pb-4 border-b-2 border-maroon-100">
+                        <div className="flex items-center justify-center w-12 h-12 bg-maroon-600 rounded-xl shadow-md flex-shrink-0">
                           <span className="text-white font-bold text-lg">{clusterIndex + 1}</span>
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-lg font-bold text-emerald-700">{cluster.name}</h3>
+                          <h3 className="text-lg font-bold text-maroon-700">{cluster.name}</h3>
                           <p className="text-xs text-gray-500">{cluster.units.length} Unit</p>
                         </div>
                       </div>
@@ -435,10 +435,10 @@ export function Profil() {
                         {cluster.units.map((unit, unitIndex) => (
                           <div
                             key={unitIndex}
-                            className="group bg-white p-4 rounded-lg border border-emerald-100 hover:border-emerald-400 hover:shadow-md transition-all cursor-default"
+                            className="group bg-white p-4 rounded-lg border border-maroon-100 hover:border-maroon-400 hover:shadow-md transition-all cursor-default"
                           >
                             <div className="flex items-start gap-3">
-                              <div className="w-2 h-2 bg-emerald-500 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></div>
+                              <div className="w-2 h-2 bg-maroon-500 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></div>
                               <p className="text-sm text-gray-700 leading-relaxed">{unit}</p>
                             </div>
                           </div>
@@ -448,14 +448,14 @@ export function Profil() {
                   ))}
 
                   {/* Lintas Klaster */}
-                  <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 shadow-lg">
+                  <div className="bg-gradient-to-br from-maroon-600 to-maroon-700 rounded-2xl p-6 shadow-lg">
                     <div className="flex items-center gap-4 mb-6 pb-4 border-b-2 border-white/20">
                       <div className="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl backdrop-blur-sm flex-shrink-0">
                         <span className="text-white font-bold text-xl">+</span>
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white">Lintas Klaster</h3>
-                        <p className="text-xs text-emerald-100">{strukturOrganisasi.lintasKlaster.length} Unit Pendukung</p>
+                        <p className="text-xs text-maroon-100">{strukturOrganisasi.lintasKlaster.length} Unit Pendukung</p>
                       </div>
                     </div>
 
@@ -483,11 +483,11 @@ export function Profil() {
       {/* Akreditasi */}
       <section id="penghargaan" className="py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card style={{ borderColor: '#A7F3D0' }}>
+          <Card style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-8">
-                <Award className="w-8 h-8 text-emerald-600" />
-                <h2 className="text-3xl text-emerald-700">Akreditasi Puskesmas</h2>
+                <Award className="w-8 h-8 text-maroon-600" />
+                <h2 className="text-3xl text-maroon-700">Akreditasi Puskesmas</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {akreditasi.map((item, index) => (
@@ -502,20 +502,20 @@ export function Profil() {
                         title: `${item.jenisDokumen} - ${item.status}`,
                         imageUrl: item.imageUrl
                       })}
-                      className="cursor-pointer p-6 border-2 rounded-xl hover:shadow-xl transition-all bg-gradient-to-br from-white to-emerald-50/30 h-full"
-                      style={{ borderColor: '#A7F3D0' }}
+                      className="cursor-pointer p-6 border-2 rounded-xl hover:shadow-xl transition-all bg-gradient-to-br from-white to-maroon-50/30 h-full"
+                      style={{ borderColor: '#f9d5d5' }}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <div className="flex flex-col items-center text-center">
-                        <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                        <div className="w-20 h-20 bg-gradient-to-br from-maroon-500 to-maroon-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
                           <Award className="w-10 h-10 text-white" />
                         </div>
                         <div className="space-y-2">
                           <p className="text-sm text-gray-600 font-medium">{item.jenisDokumen}</p>
-                          <h3 className="text-2xl font-bold text-emerald-700">{item.status}</h3>
+                          <h3 className="text-2xl font-bold text-maroon-700">{item.status}</h3>
                           <p className="text-gray-600">Masa Berlaku:</p>
-                          <p className="text-lg font-semibold text-emerald-600">{item.masaBerlaku}</p>
+                          <p className="text-lg font-semibold text-maroon-600">{item.masaBerlaku}</p>
                         </div>
                         <p className="text-xs text-gray-500 mt-4 italic">Klik untuk melihat sertifikat</p>
                       </div>
@@ -546,7 +546,7 @@ export function Profil() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white px-6 py-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-maroon-700 to-maroon-600 text-white px-6 py-4 flex items-center justify-between">
               <h3 className="text-xl font-bold">{selectedCertificate.title}</h3>
               <button
                 onClick={() => setSelectedCertificate(null)}
@@ -576,7 +576,7 @@ export function Profil() {
             <div className="bg-gray-50 px-6 py-4 flex justify-end border-t">
               <button
                 onClick={() => setSelectedCertificate(null)}
-                className="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors font-medium"
+                className="px-6 py-2 bg-maroon-600 hover:bg-maroon-700 text-white rounded-lg transition-colors font-medium"
               >
                 Tutup
               </button>

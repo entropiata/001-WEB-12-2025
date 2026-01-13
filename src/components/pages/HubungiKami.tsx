@@ -103,10 +103,10 @@ export function HubungiKami() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-emerald-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl mb-4">Hubungi Kami</h1>
-          <p className="text-xl text-emerald-50">
+          <p className="text-xl text-maroon-50">
             Kami siap melayani dan menjawab pertanyaan Anda
           </p>
         </div>
@@ -118,23 +118,23 @@ export function HubungiKami() {
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl text-emerald-700 mb-6">Informasi Kontak</h2>
+              <h2 className="text-3xl text-maroon-700 mb-6">Informasi Kontak</h2>
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   return (
-                    <Card key={index} style={{ borderColor: '#A7F3D0' }}>
+                    <Card key={index} style={{ borderColor: '#f9d5d5' }}>
                       <CardContent className="p-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Icon className="w-6 h-6 text-emerald-600" />
+                          <div className="w-12 h-12 bg-maroon-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Icon className="w-6 h-6 text-maroon-600" />
                           </div>
                           <div>
                             <h4 className="text-gray-900 mb-1">{info.title}</h4>
                             {info.link ? (
                               <a
                                 href={info.link}
-                                className="text-gray-600 hover:text-emerald-600 transition-colors"
+                                className="text-gray-600 hover:text-maroon-600 transition-colors"
                               >
                                 {info.content}
                               </a>
@@ -172,9 +172,9 @@ export function HubungiKami() {
               </div>
 
               {/* Jam Pelayanan */}
-              <Card className="mt-8 bg-emerald-50" style={{ borderColor: '#A7F3D0' }}>
+              <Card className="mt-8 bg-maroon-50" style={{ borderColor: '#f9d5d5' }}>
                 <CardContent className="p-6">
-                  <h3 className="text-xl text-emerald-700 mb-4">Jam Pelayanan</h3>
+                  <h3 className="text-xl text-maroon-700 mb-4">Jam Pelayanan</h3>
                   <div className="space-y-2 text-gray-700">
                     <div className="flex justify-between">
                       <span>Senin - Jumat</span>
@@ -184,7 +184,7 @@ export function HubungiKami() {
                       <span>Sabtu</span>
                       <span>08.00 - 12.00 WIB</span>
                     </div>
-                    <div className="pt-3 border-t border-emerald-300">
+                    <div className="pt-3 border-t border-maroon-300">
                       <p className="text-sm text-gray-600">
                         Untuk layanan darurat 24 jam, hubungi nomor darurat kami
                       </p>
@@ -196,9 +196,9 @@ export function HubungiKami() {
 
             {/* Contact Form */}
             <div>
-              <Card className="border-emerald-100">
+              <Card className="border-maroon-100">
                 <CardContent className="p-8">
-                  <h2 className="text-2xl text-emerald-700 mb-6">Kirim Pesan</h2>
+                  <h2 className="text-2xl text-maroon-700 mb-6">Kirim Pesan</h2>
 
                   {/* Success Message */}
                   {success && (
@@ -231,7 +231,7 @@ export function HubungiKami() {
                         placeholder="Masukkan nama lengkap Anda"
                         value={formData.nama}
                         onChange={handleChange}
-                        className="mt-2 border-emerald-200 focus:border-emerald-500"
+                        className="mt-2 border-maroon-200 focus:border-maroon-500"
                         required
                       />
                     </div>
@@ -245,7 +245,7 @@ export function HubungiKami() {
                         placeholder="Masukkan email atau nomor telepon Anda"
                         value={formData.email}
                         onChange={handleChange}
-                        className="mt-2 border-emerald-200 focus:border-emerald-500"
+                        className="mt-2 border-maroon-200 focus:border-maroon-500"
                         required
                       />
                     </div>
@@ -258,7 +258,7 @@ export function HubungiKami() {
                         placeholder="Tuliskan pesan atau pertanyaan Anda"
                         value={formData.pesan}
                         onChange={handleChange}
-                        className="mt-2 border-emerald-200 focus:border-emerald-500 min-h-[150px]"
+                        className="mt-2 border-maroon-200 focus:border-maroon-500 min-h-[150px]"
                         required
                         disabled={loading}
                       />
@@ -266,7 +266,7 @@ export function HubungiKami() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-emerald-600 hover:bg-emerald-700"
+                      className="w-full bg-maroon-600 hover:bg-maroon-700"
                       size="lg"
                       disabled={loading}
                     >
@@ -293,7 +293,7 @@ export function HubungiKami() {
       {/* Map */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl text-emerald-700 mb-8 text-center">Lokasi Kami</h2>
+          <h2 className="text-3xl text-maroon-700 mb-8 text-center">Lokasi Kami</h2>
           <div className="rounded-xl overflow-hidden shadow-lg">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3949.8!2d113.66322117794408!3d-6.886455629332545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNTMnMTEuMiJTIDExM8KwMzknNDcuNiJF!5e0!3m2!1sid!2sid!4v1234567890"
