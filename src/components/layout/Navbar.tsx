@@ -20,7 +20,7 @@ export function Navbar() {
 
     const pelayananSubmenu = [
         { name: 'Klaster 1 – Manajemen', href: '/pelayanan/klaster-1' },
-        { name: 'Klaster 2 – Ibu dan Anak', href: '/pelayanan/klaster-2' },
+        { name: 'Klaster 2 - Ibu dan Anak / VK Bersalin', href: '/pelayanan/klaster-2' },
         { name: 'Klaster 3 – Usia Dewasa dan Lansia', href: '/pelayanan/klaster-3' },
         { name: 'Klaster 4 – Penanggulangan Penyakit Menular', href: '/pelayanan/klaster-4' },
         { name: 'Lintas Klaster', href: '/pelayanan/lintas-klaster' },
@@ -49,7 +49,7 @@ export function Navbar() {
 
     return (
         <nav className="bg-white shadow-md sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
                         <Link to="/" className="flex items-center">

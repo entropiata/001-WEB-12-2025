@@ -124,13 +124,13 @@ export function Profil() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-maroon-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl mb-4"
+            className="text-3xl sm:text-4xl mb-4 font-bold"
           >
             Profil Puskesmas Pasongsongan
           </motion.h1>
@@ -138,7 +138,7 @@ export function Profil() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-maroon-50"
+            className="text-base sm:text-xl text-maroon-50"
           >
             Mengenal lebih dekat Puskesmas Pasongsongan
           </motion.p>
@@ -151,7 +151,7 @@ export function Profil() {
           <motion.div {...cardScrollAnimation}>
             <Card style={{ borderColor: '#f9d5d5' }}>
               <CardContent className="p-8">
-                <h2 className="text-3xl text-maroon-700 mb-6">Profil Puskesmas</h2>
+                <h2 className="text-2xl sm:text-3xl text-maroon-700 mb-6">Profil Puskesmas</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <p className="text-gray-700 mb-4 text-justify leading-relaxed">
@@ -180,7 +180,7 @@ export function Profil() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
-              <h2 className="text-3xl text-maroon-700 mb-8">Sambutan Kepala Puskesmas</h2>
+              <h2 className="text-2xl sm:text-3xl text-maroon-700 mb-8">Sambutan Kepala Puskesmas</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="md:col-span-1">
                   <div className="rounded-lg overflow-hidden mb-4">
@@ -273,7 +273,7 @@ export function Profil() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-3xl md:text-4xl text-maroon-700 mb-8"
+              className="text-2xl sm:text-3xl md:text-4xl text-maroon-700 mb-8"
             >
               Motto Pelayanan Kami
             </motion.h2>
@@ -290,7 +290,7 @@ export function Profil() {
               className="relative inline-block mb-6"
             >
               {/* Text */}
-              <h2 className="text-5xl md:text-6xl font-bold text-maroon-800 mb-2">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-maroon-800 mb-2">
                 "Ber-Iman"
               </h2>
 
@@ -398,7 +398,7 @@ export function Profil() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
-              <h2 className="text-3xl text-maroon-700 mb-12 text-center">Struktur Organisasi</h2>
+              <h2 className="text-2xl sm:text-3xl text-maroon-700 mb-12 text-center">Struktur Organisasi</h2>
 
               {/* Organizational Chart */}
               <div className="space-y-8">
@@ -487,7 +487,7 @@ export function Profil() {
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-8">
                 <Award className="w-8 h-8 text-maroon-600" />
-                <h2 className="text-3xl text-maroon-700">Akreditasi Puskesmas</h2>
+                <h2 className="text-2xl sm:text-3xl text-maroon-700">Akreditasi Puskesmas</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {akreditasi.map((item, index) => (

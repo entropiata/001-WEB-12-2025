@@ -48,7 +48,7 @@ export function Pelayanan() {
     },
     {
       id: "klaster-2",
-      name: "Klaster 2 – Ibu dan Anak",
+      name: "Klaster 2 - Ibu dan Anak / VK Bersalin",
       icon: Baby,
       description: "Pelayanan kesehatan ibu hamil, bersalin, nifas, dan anak",
       services: [
@@ -143,13 +143,13 @@ export function Pelayanan() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-maroon-700 text-white py-16">
+      <section className="bg-maroon-700 text-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl mb-4"
+            className="text-3xl sm:text-4xl mb-4 font-bold"
           >
             Pelayanan Kami
           </motion.h1>
@@ -157,7 +157,7 @@ export function Pelayanan() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-maroon-50"
+            className="text-base sm:text-xl text-maroon-50"
           >
             Berbagai layanan kesehatan terpadu untuk keluarga
             Indonesia
@@ -169,7 +169,7 @@ export function Pelayanan() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-3xl text-maroon-700 mb-3">
+            <h2 className="text-2xl sm:text-3xl text-maroon-700 mb-3">
               Pelayanan Berbasis Klaster
             </h2>
             <p className="text-gray-600">
@@ -236,7 +236,7 @@ export function Pelayanan() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card style={{ borderColor: '#f9d5d5' }}>
             <CardContent className="p-8">
-              <h3 className="text-2xl text-maroon-700 mb-6">
+              <h3 className="text-xl sm:text-2xl text-maroon-700 mb-6">
                 Informasi Penting
               </h3>
               <div className="grid md:grid-cols-2 gap-6">

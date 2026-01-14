@@ -209,8 +209,8 @@ export function InovasiDetail() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-maroon-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-maroon-700 text-white py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
           <Link to="/inovasi">
             <Button
               variant="ghost"
@@ -221,14 +221,14 @@ export function InovasiDetail() {
               Kembali
             </Button>
           </Link>
-          <h1 className="text-4xl mb-2">{inovasi.title}</h1>
-          <p className="text-xl text-maroon-50">{inovasi.subtitle}</p>
+          <h1 className="text-3xl sm:text-4xl mb-2 font-bold">{inovasi.title}</h1>
+          <p className="text-base sm:text-xl text-maroon-50">{inovasi.subtitle}</p>
         </div>
       </section>
 
       {/* Content */}
       <section className="py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8">
           {/* Image */}
           <div className="mb-12 rounded-xl overflow-hidden shadow-lg">
             <ImageWithFallback

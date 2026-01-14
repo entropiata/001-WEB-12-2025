@@ -155,7 +155,7 @@ export function Home() {
     {
       id: "klaster-2",
       icon: Baby,
-      title: 'Klaster 2 – Ibu dan Anak',
+      title: 'Klaster 2 - Ibu dan Anak / VK Bersalin',
       description: 'Pelayanan kesehatan ibu hamil, bersalin, nifas, dan anak'
     },
     {
@@ -249,7 +249,7 @@ export function Home() {
     return (
       <button
         onClick={onClick}
-        className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-maroon-600 hover:bg-maroon-700 text-white rounded-full flex items-center justify-center shadow-lg transition-all"
+        className="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-maroon-600 hover:bg-maroon-700 text-white rounded-full items-center justify-center shadow-lg transition-all"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -261,7 +261,7 @@ export function Home() {
     return (
       <button
         onClick={onClick}
-        className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-maroon-600 hover:bg-maroon-700 text-white rounded-full flex items-center justify-center shadow-lg transition-all"
+        className="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-maroon-600 hover:bg-maroon-700 text-white rounded-full items-center justify-center shadow-lg transition-all"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
@@ -271,7 +271,7 @@ export function Home() {
   // Slider settings for Layanan
   const layananSettings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -327,7 +327,7 @@ export function Home() {
   };
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <style>{`
         .slick-dots {
           bottom: -40px;
@@ -361,7 +361,7 @@ export function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl md:text-5xl mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl mb-4 font-bold leading-tight"
             >
               Melayani dengan Sepenuh Hati untuk Kesehatan Masyarakat Pasongsongan
             </motion.h1>
@@ -369,7 +369,7 @@ export function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-xl mb-8 text-maroon-50"
+              className="text-base sm:text-lg md:text-xl mb-8 text-maroon-50"
             >
               Memberikan pelayanan kesehatan yang berkualitas, terjangkau, dan mudah diakses oleh seluruh masyarakat
             </motion.p>
@@ -380,18 +380,18 @@ export function Home() {
               className="flex flex-wrap gap-4"
             >
               <motion.div variants={fadeInUp} transition={{ delay: 0.4 }}>
-                <Link to="/pelayanan">
-                  <Button size="lg" className="bg-white text-maroon-700 hover:bg-maroon-50">
+                <Link to="/pelayanan" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto bg-white text-maroon-700 hover:bg-maroon-50">
                     Lihat Pelayanan
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
               </motion.div>
-              <motion.div variants={fadeInUp} transition={{ delay: 0.5 }}>
-                <Link to="/hubungi-kami">
+              <motion.div variants={fadeInUp} transition={{ delay: 0.5 }} className="w-full sm:w-auto">
+                <Link to="/hubungi-kami" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-maroon-800 text-white hover:bg-maroon-900 border-2 border-white"
+                    className="w-full sm:w-auto bg-maroon-800 text-white hover:bg-maroon-900 border-2 border-white"
                   >
                     Hubungi Kami
                   </Button>
@@ -412,7 +412,7 @@ export function Home() {
             </p>
           </div>
 
-          <div className="relative px-12">
+          <div className="relative px-0 md:px-12 pb-12 overflow-hidden">
             <Slider {...layananSettings}>
               {layananUtama.map((layanan, index) => {
                 const Icon = layanan.icon;
@@ -638,7 +638,7 @@ export function Home() {
             </p>
           </div>
 
-          <div className="relative px-12">
+          <div className="relative px-0 md:px-12 pb-12 overflow-hidden">
             <Slider {...artikelSettings}>
               {artikelTerbaru.map((artikel, index) => (
                 <div key={index} className="px-3">

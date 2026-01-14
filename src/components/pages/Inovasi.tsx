@@ -35,10 +35,10 @@ export function Inovasi() {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <section className="bg-maroon-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl mb-4">Inovasi Puskesmas Pasongsongan</h1>
-          <p className="text-xl text-maroon-50">
+      <section className="bg-maroon-700 text-white py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl mb-4 font-bold">Inovasi Puskesmas Pasongsongan</h1>
+          <p className="text-base sm:text-xl text-maroon-50">
             Berbagai inovasi untuk meningkatkan kualitas pelayanan kesehatan masyarakat
           </p>
         </div>
